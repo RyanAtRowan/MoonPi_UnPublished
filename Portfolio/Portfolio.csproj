@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Assets\Resume_Thumbnail.jpeg" />
+  </ItemGroup>
+
 </Project>
