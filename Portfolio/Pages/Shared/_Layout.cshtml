@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Portfolio</title>
-    <link rel="stylesheet" href="~/Portfolio.styles.css" asp-append-version="true" />
+    <title>Ryan's Portfolio</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/vapor.css" asp-append-version="true" />
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -32,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Contact">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Blog" asp-page="/Index">Blog</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -42,39 +44,39 @@
             @RenderBody()
         </main>
     </div>
+        <footer class="footer d-flex flex-wrap justify-content-between py-3 mt-4 px-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-body-secondary"></span>
+            </div>
 
-    <footer class="footer d-flex flex-wrap justify-content-between pt-3 mt-4 px-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-body-secondary">Ryan Tombleson</span>
-        </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex" style="font-size: 20px">
+                <li class="ms-3">
+                    <a class="text-body-secondary" href="https://www.facebook.com/Ryandtombleson/">
+                        <i class="devicon-facebook-plain">
+                            <use xlink:href="#facebook"></use>
+                        </i>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a class="text-body-secondary" href="https://www.linkedin.com/in/ryan-tombleson-6499ba231/">
+                        <i class="devicon-linkedin-plain">
+                            <use xlink:href="#linkedin"></use>
+                        </i>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a class="text-body-secondary" href="https://github.com/RyanAtRowan">
+                        <i class="devicon-github-original">
+                            <use xlink:href="#github"></use>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </footer>
 
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex" style="font-size: 20px">
-            <li class="ms-3">
-                <a class="text-body-secondary" href="https://www.facebook.com/Ryandtombleson/">
-                    <i class="devicon-facebook-plain">
-                        <use xlink:href="#facebook"></use>
-                    </i>
-                </a>
-            </li>
-            <li class="ms-3">
-                <a class="text-body-secondary" href="https://www.linkedin.com/in/ryan-tombleson-6499ba231/">
-                    <i class="devicon-linkedin-plain">
-                    <use xlink:href="#linkedin"></use></i>
-                </a>
-            </li>
-            <li class="ms-3">
-                <a class="text-body-secondary" href="https://github.com/RyanAtRowan">
-                    <i class="devicon-github-original">
-                        <use xlink:href="#github"></use>
-                    </i>
-                </a>
-            </li>
-        </ul>
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
