@@ -1,0 +1,10 @@
+﻿body {
+}
+
+#grad {
+    background-image: linear-gradient(#20427F, #56AACD);
+}
+
+#lith {
+    background-image: url(../Assets/Blog/footer.png);
+}

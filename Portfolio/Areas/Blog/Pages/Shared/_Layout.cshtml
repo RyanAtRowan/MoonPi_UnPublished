@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MapleUnity</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/cerulean.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/blog.css" />
+</head>
+<body id="grad">
+    <header>
+    </header>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    <footer id="lith" class="footer d-flex flex-wrap justify-content-center pt-3 pb-2 mt-4 px-4 border-0 align-items-center">
+        <a role="button" class="btn btn-danger mt-3 mx-2 border-2 py-1 px-4" href="https://www.youtube.com/">YouTube</a>
+        <a role="button" class="btn btn-success mt-3 mx-2 border-2 py-1 px-4" href="https://github.com/RyanAtRowan/MapleUnity">Project Github</a>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
