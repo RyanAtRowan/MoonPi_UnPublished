@@ -1,13 +1,18 @@
 ﻿using Microsoft.AspNetCore.Components.Routing;
+using System.ComponentModel.DataAnnotations;
 
 namespace Portfolio.Models
 {
     public class Favorite
     {
-        public int userId { get; set; }
-        public User user { get; set; }
+        [Required]
+        public int UserId { get; set; }
+        [Required]
+        public User User { get; set; }
 
-        public int scrollId { get; set; }
-        public Scroll scroll { get; set; }
+        [Required]
+        public int ScrollId { get; set; }
+        [Required]
+        public Scroll Scroll { get; set; }
     }
 }
