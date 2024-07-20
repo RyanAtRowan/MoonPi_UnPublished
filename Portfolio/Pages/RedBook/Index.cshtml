@@ -3,4 +3,41 @@
 @{
 }
 
-This is the Index Page
+<div class="align-items-center justify-content-center g-5 py-5 mx-0">
+    <h2 class="py-2" style="text-align:center">Top 10 Highest Price Scrolls</h2>
+    <!-- List of top 10 -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    Scroll
+                </th>
+                <th>
+                    Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model.Scrolls)
+            {
+                <tr>
+                    <td style="text-align:center">
+                        @{
+                            var imageUrl = $"~/Assets/{obj.Success}.png";
+                        }
+                    <img src="@Url.Content(imageUrl)" />   
+                 </td>
+                <td>
+                    @obj.Name
+                </td>
+                <td style="text-align:center">
+                    @obj.Price
+                </td>
+            </tr>  
+            }
+
+        </tbody>
+
+    </table>
+</div>
+
