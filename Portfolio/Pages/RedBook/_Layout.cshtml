@@ -26,13 +26,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item" id="favorites">
-                            <a class="nav-link @(Context.Request.Path == "/Favorites" ? "active" : "")" asp-area="" asp-page="RedBook/Favorites">Favorites</a>
+                            <a class="nav-link @(Context.Request.Path == "/Redbook/Favorites" ? "active" : "")" asp-area="" asp-page="/RedBook/Favorites">Favorites</a>
                         </li>
                         <li class="nav-item" id="search">
-                            <a class="nav-link @(Context.Request.Path == "/Search" ? "active" : "")" asp-area="" asp-page="RedBook/Search">Find a Scroll</a>
+                            <a class="nav-link @(Context.Request.Path == "/RedBook/Search" ? "active" : "")" asp-area="" asp-page="/RedBook/Search">Find a Scroll</a>
                         </li>
                         <li class="nav-item" id="return">
-                            <a class="nav-link @(Context.Request.Path == "/Contact" ? "active" : "")" asp-area="" asp-page="/Index">Return to Portfolio</a>
+                            <a class="nav-link" asp-area="" asp-page="/Index">Return to Portfolio</a>
                         </li>
                     </ul>
                 </div>
