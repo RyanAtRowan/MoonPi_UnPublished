@@ -1,0 +1,393 @@
+Id,Name,Slot,Stat,Success,Price
+1,Scroll for Helmet for DEF 10%,helmet,DEF,10,0
+2,Scroll for Helmet for DEF 60%,helmet,DEF,60,0
+3,Scroll for Helmet for DEF 100%,helmet,DEF,100,0
+4,Dark Scroll for Helmet for DEF 30%,helmet,DEF,30,0
+5,Dark Scroll for Helmet for DEF 70%,helmet,DEF,70,0
+6,Scroll for Helmet for HP 10%,helmet,HP,10,0
+7,Scroll for Helmet for HP 60%,helmet,HP,60,0
+8,Scroll for Helmet for HP 100%,helmet,HP,100,0
+9,Dark Scroll for Helmet for HP 30%,helmet,HP,30,0
+10,Dark Scroll for Helmet for HP 70%,helmet,HP,70,0
+11,Scroll for Helmet for INT 10%,helmet,INT,10,0
+12,Scroll for Helmet for INT 60%,helmet,INT,60,0
+13,Scroll for Helmet for INT 100%,helmet,INT,100,0
+14,Dark Scroll for Helmet for INT 30%,helmet,INT,30,0
+15,Dark Scroll for Helmet for INT 70%,helmet,INT,70,0
+16,Scroll for Helmet for Accuracy 10%,helmet,ACC,10,0
+17,Scroll for Helmet for Accuracy 60%,helmet,ACC,60,0
+18,Scroll for Helmet for Accuracy 100%,helmet,ACC,100,0
+19,Dark Scroll for Helmet for Accuracy 30%,helmet,ACC,30,0
+20,Dark Scroll for Helmet for Accuracy 70%,helmet,ACC,70,0
+21,Scroll for Helmet for DEX 10%,helmet,DEX,10,0
+22,Scroll for Helmet for DEX 60%,helmet,DEX,60,0
+23,Scroll for Helmet for DEX 100%,helmet,DEX,100,0
+24,Dark Scroll for Helmet for DEX 30%,helmet,DEX,30,0
+25,Dark Scroll for Helmet for DEX 70%,helmet,DEX,70,0
+26,Scroll for Face Accessory for HP 10%,face,HP,10,0
+27,Scroll for Face Accessory for HP 60%,face,HP,60,0
+28,Scroll for Face Accessory for HP 100%,face,HP,100,0
+29,Dark Scroll for Face Accessory for HP 30%,face,HP,30,0
+30,Dark Scroll for Face Accessory for HP 70%,face,HP,70,0
+31,Scroll for Face Accessory for Avoidability 10%,face,AVOID,10,0
+32,Scroll for Face Accessory for Avoidability 60%,face,AVOID,60,0
+33,Scroll for Face Accessory for Avoidability 100%,face,AVOID,100,0
+34,Dark Scroll for Face Accessory for Avoidability 30%,face,AVOID,30,0
+35,Dark Scroll for Face Accessory for Avoidability 70%,face,AVOID,70,0
+36,Scroll for Eye Accessory for Accuracy 10%,eye,ACC,10,0
+37,Scroll for Eye Accessory for Accuracy 60%,eye,ACC,60,0
+38,Scroll for Eye Accessory for Accuracy 100%,eye,ACC,100,0
+39,Dark Scroll for Eye Accessory for Accuracy 30%,eye,ACC,30,0
+40,Dark Scroll for Eye Accessory for Accuracy 70%,eye,ACC,70,0
+41,Scroll for Eye Accessory for HP 10%,eye,HP,10,0
+42,Scroll for Eye Accessory for HP 60%,eye,HP,60,0
+43,Scroll for Eye Accessory for HP 100%,eye,HP,100,0
+44,Dark Scroll for Eye Accessory for HP 30%,eye,HP,30,0
+45,Dark Scroll for Eye Accessory for HP 70%,eye,HP,70,0
+46,Scroll for Earring for INT 10%,earring,INT,10,0
+47,Scroll for Earring for INT 60%,earring,INT,60,0
+48,Scroll for Earring for INT 100%,earring,INT,100,0
+49,Dark Scroll for Earring for INT 30%,earring,INT,30,0
+50,Dark Scroll for Earring for INT 70%,earring,INT,70,0
+51,Scroll for Earring for DEX 10%,earring,DEX,10,0
+52,Scroll for Earring for DEX 60%,earring,DEX,60,0
+53,Scroll for Earring for DEX 100%,earring,DEX,100,0
+54,Dark Scroll for Earring for DEX 30%,earring,DEX,30,0
+55,Dark Scroll for Earring for DEX 70%,earring,DEX,70,0
+56,Scroll for Earrings for DEF 10%,earring,DEF,10,0
+57,Scroll for Earrings for DEF 60%,earring,DEF,60,0
+58,Scroll for Earrings for DEF 100%,earring,DEF,100,0
+59,Dark Scroll for Earrings for DEF 30%,earring,DEF,30,0
+60,Dark Scroll for Earrings for DEF 70%,earring,DEF,70,0
+61,Scroll for Earring for LUK 10%,earring,LUK,10,0
+62,Scroll for Earring for LUK 60%,earring,LUK,60,0
+63,Scroll for Earring for LUK 100%,earring,LUK,100,0
+64,Dark Scroll for Earring for LUK 30%,earring,LUK,30,0
+65,Dark Scroll for Earring for LUK 70%,earring,LUK,70,0
+66,Scroll for Earring for HP 10%,earring,HP,10,0
+67,Scroll for Earring for HP 60%,earring,HP,60,0
+68,Scroll for Earring for HP 100%,earring,HP,100,0
+69,Dark Scroll for Earring for HP 30%,earring,HP,30,0
+70,Dark Scroll for Earring for HP 70%,earring,HP,70,0
+71,Scroll for Topwear for DEF 10%,top,DEF,10,0
+72,Scroll for Topwear for DEF 60%,top,DEF,60,0
+73,Scroll for Topwear for DEF 100%,top,DEF,100,0
+74,Dark Scroll for Topwear for DEF 30%,top,DEF,30,0
+75,Dark Scroll for Topwear for DEF 70%,top,DEF,70,0
+76,Scroll for Topwear for STR 10%,top,STR,10,0
+77,Scroll for Topwear for STR 60%,top,STR,60,0
+78,Scroll for Topwear for STR 100%,top,STR,100,0
+79,Dark Scroll for Topwear for STR 30%,top,STR,30,0
+80,Dark Scroll for Topwear for STR 70%,top,STR,70,0
+81,Scroll for Topwear for HP 10%,top,HP,10,0
+82,Scroll for Topwear for HP 60%,top,HP,60,0
+83,Scroll for Topwear for HP 100%,top,HP,100,0
+84,Dark Scroll for Topwear for HP 30%,top,HP,30,0
+85,Dark Scroll for Topwear for HP 70%,top,HP,70,0
+86,Scroll for Topwear for LUK 10%,top,LUK,10,0
+87,Scroll for Topwear for LUK 60%,top,LUK,60,0
+88,Scroll for Topwear for LUK 100%,top,LUK,100,0
+89,Dark Scroll for Topwear for LUK 30%,top,LUK,30,0
+90,Dark Scroll for Topwear for LUK 70%,top,LUK,70,0
+91,Scroll for Overall Armor for DEX 10%,overall,DEX,10,0
+92,Scroll for Overall Armor for DEX 60%,overall,DEX,60,0
+93,Scroll for Overall Armor for DEX 100%,overall,DEX,100,0
+94,Dark Scroll for Overall Armor for DEX 30%,overall,DEX,30,0
+95,Dark Scroll for Overall Armor for DEX 70%,overall,DEX,70,0
+96,Scroll for Overall Armor for DEF 10%,overall,DEF,10,0
+97,Scroll for Overall Armor for DEF 60%,overall,DEF,60,0
+98,Scroll for Overall Armor for DEF 100%,overall,DEF,100,0
+99,Dark Scroll for Overall Armor for DEF 30%,overall,DEF,30,0
+100,Dark Scroll for Overall Armor for DEF 70%,overall,DEF,70,0
+101,Scroll for Overall Armor for INT 10%,overall,INT,10,0
+102,Scroll for Overall Armor for INT 60%,overall,INT,60,0
+103,Scroll for Overall Armor for INT 100%,overall,INT,100,0
+104,Dark Scroll for Overall Armor for INT 30%,overall,INT,30,0
+105,Dark Scroll for Overall Armor for INT 70%,overall,INT,70,0
+106,Scroll for Overall Armor for LUK 10%,overall,LUK,10,0
+107,Scroll for Overall Armor for LUK 60%,overall,LUK,60,0
+108,Scroll for Overall Armor for LUK 100%,overall,LUK,100,0
+109,Dark Scroll for Overall Armor for LUK 30%,overall,LUK,30,0
+110,Dark Scroll for Overall Armor for LUK 70%,overall,LUK,70,0
+111,Scroll for Overall Armor for STR 10%,overall,STR,10,0
+112,Scroll for Overall Armor for STR 60%,overall,STR,60,0
+113,Scroll for Overall Armor for STR 100%,overall,STR,100,0
+114,Dark Scroll for Overall Armor for STR 30%,overall,STR,30,0
+115,Dark Scroll for Overall Armor for STR 70%,overall,STR,70,0
+116,Scroll for Bottomwear for DEF 10%,bottom,DEF,10,0
+117,Scroll for Bottomwear for DEF 60%,bottom,DEF,60,0
+118,Scroll for Bottomwear for DEF 100%,bottom,DEF,100,0
+119,Dark Scroll for Bottomwear for DEF 30%,bottom,DEF,30,0
+120,Dark Scroll for Bottomwear for DEF 70%,bottom,DEF,70,0
+121,Scroll for Bottomwear for Jump 10%,bottom,JUMP,10,0
+122,Scroll for Bottomwear for Jump 60%,bottom,JUMP,60,0
+123,Scroll for Bottomwear for Jump 100%,bottom,JUMP,100,0
+124,Dark Scroll for Bottomwear for Jump 30%,bottom,JUMP,30,0
+125,Dark Scroll for Bottomwear for Jump 70%,bottom,JUMP,70,0
+126,Scroll for Bottomwear for HP 10%,bottom,HP,10,0
+127,Scroll for Bottomwear for HP 60%,bottom,HP,60,0
+128,Scroll for Bottomwear for HP 100%,bottom,HP,100,0
+129,Dark Scroll for Bottomwear for HP 30%,bottom,HP,30,0
+130,Dark Scroll for Bottomwear for HP 70%,bottom,HP,70,0
+131,Scroll for Bottomwear for DEX 10%,bottom,DEX,10,0
+132,Scroll for Bottomwear for DEX 60%,bottom,DEX,60,0
+133,Scroll for Bottomwear for DEX 100%,bottom,DEX,100,0
+134,Dark Scroll for Bottomwear for DEX 30%,bottom,DEX,30,0
+135,Dark Scroll for Bottomwear for DEX 70%,bottom,DEX,70,0
+136,Scroll for Shoes for Avoidability 10%,shoes,AVOID,10,0
+137,Scroll for Shoes for Avoidability 60%,shoes,AVOID,60,0
+138,Scroll for Shoes for Avoidability 100%,shoes,AVOID,100,0
+139,Dark Scroll for Shoes for Avoidability 30%,shoes,AVOID,30,0
+140,Dark Scroll for Shoes for Avoidability 70%,shoes,AVOID,70,0
+141,Scroll for Shoes for Jump 10%,shoes,JUMP,10,0
+142,Scroll for Shoes for Jump 60%,shoes,JUMP,60,0
+143,Scroll for Shoes for Jump 100%,shoes,JUMP,100,0
+144,Dark Scroll for Shoes for Jump 30%,shoes,JUMP,30,0
+145,Dark Scroll for Shoes for Jump 70%,shoes,JUMP,70,0
+146,Scroll for Shoes for Speed 10%,shoes,SPEED,10,0
+147,Scroll for Shoes for Speed 60%,shoes,SPEED,60,0
+148,Scroll for Shoes for Speed 100%,shoes,SPEED,100,0
+149,Dark Scroll for Shoes for Speed 30%,shoes,SPEED,30,0
+150,Dark Scroll for Shoes for Speed 70%,shoes,SPEED,70,0
+151,Scroll for Gloves for DEX 10%,gloves,DEX,10,0
+152,Scroll for Gloves for DEX 60%,gloves,DEX,60,0
+153,Scroll for Gloves for DEX 100%,gloves,DEX,100,0
+154,Dark Scroll for Gloves for DEX 30%,gloves,DEX,30,0
+155,Dark Scroll for Gloves for DEX 70%,gloves,DEX,70,0
+156,Scroll for Gloves for ATT 10%,gloves,ATT,10,0
+157,Scroll for Gloves for ATT 60%,gloves,ATT,60,0
+158,Scroll for Gloves for ATT 100%,gloves,ATT,100,0
+159,Dark Scroll for Gloves for ATT 30%,gloves,ATT,30,0
+160,Dark Scroll for Gloves for ATT 70%,gloves,ATT,70,0
+161,Scroll for Gloves for HP 10%,gloves,HP,10,0
+162,Scroll for Gloves for HP 60%,gloves,HP,60,0
+163,Scroll for Gloves for HP 100%,gloves,HP,100,0
+164,Dark Scroll for Gloves for HP 30%,gloves,HP,30,0
+165,Dark Scroll for Gloves for HP 100%,gloves,HP,70,0
+166,Scroll for Gloves for Magic Att. 10%,gloves,MATT,10,0
+167,Scroll for Gloves for Magic Att. 60%,gloves,MATT,60,0
+168,Scroll for Gloves for Magic Att. 100%,gloves,MATT,100,0
+169,Dark Scroll for Gloves for Magic Att. 30%,gloves,MATT,30,0
+170,Dark Scroll for Gloves for Magic Att. 70%,gloves,MATT,70,0
+171,Scroll for Shield for DEF 10%,shield,DEF,10,0
+172,Scroll for Shield for DEF 60%,shield,DEF,60,0
+173,Scroll for Shield for DEF 100%,shield,DEF,100,0
+174,Dark Scroll for Shield for DEF 30%,shield,DEF,30,0
+175,Dark Scroll for Shield for DEF 70%,shield,DEF,70,0
+176,Scroll for Shield for LUK 10%,shield,LUK,10,0
+177,Scroll for Shield for LUK 60%,shield,LUK,60,0
+178,Scroll for Shield for LUK 100%,shield,LUK,100,0
+179,Dark Scroll for Shield for LUK 30%,shield,LUK,30,0
+180,Dark Scroll for Shield for LUK 70%,shield,LUK,70,0
+181,Scroll for Shield for HP 10%,shield,HP,10,0
+182,Scroll for Shield for HP 60%,shield,HP,60,0
+183,Scroll for Shield for HP 100%,shield,HP,100,0
+184,Dark Scroll for Shield for HP 30%,shield,HP,30,0
+185,Dark Scroll for Shield for HP 70%,shield,HP,70,0
+186,Scroll for Shield for Weapon Att. 10%,shield,ATT,10,0
+187,Scroll for Shield for Weapon Att. 60%,shield,ATT,60,0
+188,Scroll for Shield for Weapon Att. 100%,shield,ATT,100,0
+189,Dark Scroll for Shield for Weapon Att. 30%,shield,ATT,30,0
+190,Dark Scroll for Shield for Weapon Att. 70%,shield,ATT,70,0
+191,Scroll for Shield for Magic Att. 10%,shield,MATT,10,0
+192,Scroll for Shield for Magic Att. 60%,shield,MATT,60,0
+193,Scroll for Shield for Magic Att. 100%,shield,MATT,100,0
+194,Dark Scroll for Shield for Magic Att. 30%,shield,MATT,30,0
+195,Dark Scroll for Shield for Magic Att. 70%,shield,MATT,70,0
+196,Scroll for Shield for STR 10%,shield,STR,10,0
+197,Scroll for Shield for STR 60%,shield,STR,60,0
+198,Scroll for Shield for STR 100%,shield,STR,100,0
+199,Dark Scroll for Shield for STR 30%,shield,STR,30,0
+200,Dark Scroll for Shield for STR 70%,shield,STR,70,0
+201,Scroll for Cape for Magic Def. 10%,cape,MDEF,10,0
+202,Scroll for Cape for Magic Def. 60%,cape,MDEF,60,0
+203,Scroll for Cape for Magic Def. 100%,cape,MDEF,100,0
+204,Dark Scroll for Cape for Magic Def. 30%,cape,MDEF,30,0
+205,Dark Scroll for Cape for Magic Def. 70%,cape,MDEF,70,0
+206,Scroll for Cape for Weapon Def. 10%,cape,DEF,10,0
+207,Scroll for Cape for Weapon Def. 60%,cape,DEF,60,0
+208,Scroll for Cape for Weapon Def. 100%,cape,DEF,100,0
+209,Dark Scroll for Cape for Weapon Def. 30%,cape,DEF,30,0
+210,Dark Scroll for Cape for Weapon Def. 70%,cape,DEF,70,0
+211,Scroll for Cape for HP 10%,cape,HP,10,0
+212,Scroll for Cape for HP 60%,cape,HP,60,0
+213,Scroll for Cape for HP 100%,cape,HP,100,0
+214,Dark Scroll for Cape for HP 30%,cape,HP,30,0
+215,Dark Scroll for Cape for HP 70%,cape,HP,70,0
+216,Scroll for Cape for MP 10%,cape,MP,10,0
+217,Scroll for Cape for MP 60%,cape,MP,60,0
+218,Scroll for Cape for MP 100%,cape,MP,100,0
+219,Dark Scroll for Cape for MP 30%,cape,MP,30,0
+220,Dark Scroll for Cape for MP 70%,cape,MP,70,0
+221,Scroll for Cape for STR 10%,cape,STR,10,0
+222,Scroll for Cape for STR 60%,cape,STR,60,0
+223,Scroll for Cape for STR 100%,cape,STR,100,0
+224,Dark Scroll for Cape for STR 30%,cape,STR,30,0
+225,Dark Scroll for Cape for STR 70%,cape,STR,70,0
+226,Scroll for Cape for INT 10%,cape,INT,10,0
+227,Scroll for Cape for INT 60%,cape,INT,60,0
+228,Scroll for Cape for INT 100%,cape,INT,100,0
+229,Dark Scroll for Cape for INT 30%,cape,INT,30,0
+230,Dark Scroll for Cape for INT 70%,cape,INT,70,0
+231,Scroll for Cape for DEX 10%,cape,DEX,10,0
+232,Scroll for Cape for DEX 60%,cape,DEX,60,0
+233,Scroll for Cape for DEX 100%,cape,DEX,100,0
+234,Dark Scroll for Cape for DEX 30%,cape,DEX,30,0
+235,Dark Scroll for Cape for DEX 70%,cape,DEX,70,0
+236,Scroll for Cape for LUK 10%,cape,LUK,10,0
+237,Scroll for Cape for LUK 60%,cape,LUK,60,0
+238,Scroll for Cape for LUK 100%,cape,LUK,100,0
+239,Dark Scroll for Cape for LUK 30%,cape,LUK,30,0
+240,Dark Scroll for Cape for LUK 70%,cape,LUK,70,0
+241,Scroll for One-handed Sword for ATT 10%,1HS,ATT,10,0
+242,Scroll for One-handed Sword for ATT 60%,1HS,ATT,60,0
+243,Scroll for One-handed Sword for ATT 100%,1HS,ATT,100,0
+244,Dark Scroll for One-handed Sword for ATT 30%,1HS,ATT,30,0
+245,Dark Scroll for One-handed Sword for ATT 70%,1HS,ATT,70,0
+246,Scroll for One-handed Sword for Magic Att. 10%,1HS,MATT,10,0
+247,Scroll for One-handed Sword for Magic Att. 60%,1HS,MATT,60,0
+248,Scroll for One-handed Sword for Magic Att. 100%,1HS,MATT,100,0
+249,Dark Scroll for One-handed Sword for Magic Att. 30%,1HS,MATT,30,0
+250,Dark Scroll for One-handed Sword for Magic Att. 70%,1HS,MATT,70,0
+251,Scroll for One-handed Sword for Accuracy 10%,1HS,ACC,10,0
+252,Scroll for One-handed Sword for Accuracy 60%,1HS,ACC,60,0
+253,Scroll for One-handed Sword for Accuracy 100%,1HS,ACC,100,0
+254,Dark Scroll for One-handed Sword for Accuracy 30%,1HS,ACC,30,0
+255,Dark Scroll for One-handed Sword for Accuracy 70%,1HS,ACC,70,0
+256,Scroll for One-handed Axe for Accuracy 10%,1HA,ACC,10,0
+257,Scroll for One-handed Axe for Accuracy 60%,1HA,ACC,60,0
+258,Scroll for One-handed Axe for Accuracy 100%,1HA,ACC,100,0
+259,Dark Scroll for One-handed Axe for Accuracy 30%,1HA,ACC,30,0
+260,Dark Scroll for One-handed Axe for Accuracy 70%,1HA,ACC,70,0
+261,Scroll for One-handed Axe for ATT 10%,1HA,ATT,10,0
+262,Scroll for One-handed Axe for ATT 60%,1HA,ATT,60,0
+263,Scroll for One-handed Axe for ATT 100%,1HA,ATT,100,0
+264,Dark Scroll for One-handed Axe for ATT 30%,1HA,ATT,30,0
+265,Dark Scroll for One-handed Axe for ATT 70%,1HA,ATT,70,0
+266,Scroll for One-handed BW for Accuracy 10%,1HBW,ACC,10,0
+267,Scroll for One-handed BW for Accuracy 60%,1HBW,ACC,60,0
+268,Scroll for One-handed BW for Accuracy 100%,1HBW,ACC,100,0
+269,Dark Scroll for One-handed BW for Accuracy 30%,1HBW,ACC,30,0
+270,Dark Scroll for One-handed BW for Accuracy 70%,1HBW,ACC,70,0
+271,Scroll for One-handed BW for ATT 10%,1HBW,ATT,10,0
+272,Scroll for One-handed BW for ATT 60%,1HBW,ATT,60,0
+273,Scroll for One-handed BW for ATT 100%,1HBW,ATT,100,0
+274,Dark Scroll for One-handed BW for ATT 30%,1HBW,ATT,30,0
+275,Dark Scroll for One-handed BW for ATT 70%,1HBW,ATT,70,0
+276,Scroll for Dagger for ATT 10%,dagger,ATT,10,0
+277,Scroll for Dagger for ATT 60%,dagger,ATT,60,0
+278,Scroll for Dagger for ATT 100%,dagger,ATT,100,0
+279,Dark Scroll for Dagger for ATT 30%,dagger,ATT,30,0
+280,Dark Scroll for Dagger for ATT 70%,dagger,ATT,70,0
+281,Scroll for Wand for Magic Att. 10%,wand,MATT,10,0
+282,Scroll for Wand for Magic Att. 60%,wand,MATT,60,0
+283,Scroll for Wand for Magic Att. 100%,wand,MATT,100,0
+284,Dark Scroll for Wand for Magic Att. 30%,wand,MATT,30,0
+285,Dark Scroll for Wand for Magic Att. 70%,wand,MATT,70,0
+286,Scroll for Staff for Magic Att. 10%,staff,MATT,10,0
+287,Scroll for Staff for Magic Att. 60%,staff,MATT,60,0
+288,Scroll for Staff for Magic Att. 100%,staff,MATT,100,0
+289,Dark Scroll for Staff for Magic Att. 30%,staff,MATT,30,0
+290,Dark Scroll for Staff for Magic Att. 70%,staff,MATT,70,0
+291,Scroll for Two-handed Sword for ATT 10%,2HS,ATT,10,0
+292,Scroll for Two-handed Sword for ATT 60%,2HS,ATT,60,0
+293,Scroll for Two-handed Sword for ATT 100%,2HS,ATT,100,0
+294,Dark Scroll for Two-handed Sword for ATT 30%,2HS,ATT,30,0
+295,Dark Scroll for Two-handed Sword for ATT 70%,2HS,ATT,70,0
+296,Scroll for Two-handed Sword for Accuracy 10%,2HS,ACC,10,0
+297,Scroll for Two-handed Sword for Accuracy 60%,2HS,ACC,60,0
+298,Scroll for Two-handed Sword for Accuracy 100%,2HS,ACC,100,0
+299,Dark Scroll for Two-handed Sword for Accuracy 30%,2HS,ACC,30,0
+300,Dark Scroll for Two-handed Sword for Accuracy 70%,2HS,ACC,70,0
+301,Scroll for Two-handed Axe for ATT 10%,2HA,ATT,10,0
+302,Scroll for Two-handed Axe for ATT 60%,2HA,ATT,60,0
+303,Scroll for Two-handed Axe for ATT 100%,2HA,ATT,100,0
+304,Dark Scroll for Two-handed Axe for ATT 30%,2HA,ATT,30,0
+305,Dark Scroll for Two-handed Axe for ATT 70%,2HA,ATT,70,0
+306,Scroll for Two-handed Axe for Accuracy 10%,2HA,ACC,10,0
+307,Scroll for Two-handed Axe for Accuracy 60%,2HA,ACC,60,0
+308,Scroll for Two-handed Axe for Accuracy 100%,2HA,ACC,100,0
+309,Dark Scroll for Two-handed Axe for Accuracy 30%,2HA,ACC,30,0
+310,Dark Scroll for Two-handed Axe for Accuracy 70%,2HA,ACC,70,0
+311,Scroll for Two-handed BW for ATT 10%,2HBW,ATT,10,0
+312,Scroll for Two-handed BW for ATT 60%,2HBW,ATT,60,0
+313,Scroll for Two-handed BW for ATT 100%,2HBW,ATT,100,0
+314,Dark Scroll for Two-handed BW for ATT 30%,2HBW,ATT,30,0
+315,Dark Scroll for Two-handed BW for ATT 70%,2HBW,ATT,70,0
+316,Scroll for Two-handed BW for Accuracy 10%,2HBW,ACC,10,0
+317,Scroll for Two-handed BW for Accuracy 60%,2HBW,ACC,60,0
+318,Scroll for Two-handed BW for Accuracy 100%,2HBW,ACC,100,0
+319,Dark Scroll for Two-handed BW for Accuracy 30%,2HBW,ACC,30,0
+320,Dark Scroll for Two-handed BW for Accuracy 70%,2HBW,ACC,70,0
+321,Scroll for Spear for ATT 10%,spear,ATT,10,0
+322,Scroll for Spear for ATT 60%,spear,ATT,60,0
+323,Scroll for Spear for ATT 100%,spear,ATT,100,0
+324,Dark Scroll for Spear for ATT 30%,spear,ATT,30,0
+325,Dark Scroll for Spear for ATT 70%,spear,ATT,70,0
+326,Scroll for Spear for Accuracy 10%,spear,ACC,10,0
+327,Scroll for Spear for Accuracy 60%,spear,ACC,60,0
+328,Scroll for Spear for Accuracy 100%,spear,ACC,100,0
+329,Dark Scroll for Spear for Accuracy 30%,spear,ACC,30,0
+330,Dark Scroll for Spear for Accuracy 70%,spear,ACC,70,0
+331,Scroll for Pole Arm for ATT 10%,polearm,ATT,10,0
+332,Scroll for Pole Arm for ATT 60%,polearm,ATT,60,0
+333,Scroll for Pole Arm for ATT 100%,polearm,ATT,100,0
+334,Dark Scroll for Pole Arm for ATT 30%,polearm,ATT,30,0
+335,Dark Scroll for Pole Arm for ATT 70%,polearm,ATT,70,0
+336,Scroll for Pole Arm for Accuracy 10%,polearm,ACC,10,0
+337,Scroll for Pole Arm for Accuracy 60%,polearm,ACC,60,0
+338,Scroll for Pole Arm for Accuracy 100%,polearm,ACC,100,0
+339,Dark Scroll for Pole Arm for Accuracy 30%,polearm,ACC,30,0
+340,Dark Scroll for Pole Arm for Accuracy 70%,polearm,ACC,70,0
+341,Scroll for Bow for ATT 10%,bow,ATT,10,0
+342,Scroll for Bow for ATT 60%,bow,ATT,60,0
+343,Scroll for Bow for ATT 100%,bow,ATT,100,0
+344,Dark Scroll for Bow for ATT 30%,bow,ATT,30,0
+345,Dark Scroll for Bow for ATT 70%,bow,ATT,70,0
+346,Scroll for Crossbow for ATT 10%,crossbow,ATT,10,0
+347,Scroll for Crossbow for ATT 60%,crossbow,ATT,60,0
+348,Scroll for Crossbow for ATT 100%,crossbow,ATT,100,0
+349,Dark Scroll for Crossbow for ATT 30%,crossbow,ATT,30,0
+350,Dark Scroll for Crossbow for ATT 70%,crossbow,ATT,70,0
+351,Scroll for Claw for ATT 10%,claw,ATT,10,0
+352,Scroll for Claw for ATT 60%,claw,ATT,60,0
+353,Scroll for Claw for ATT 100%,claw,ATT,100,0
+354,Dark Scroll for Claw for ATT 30%,claw,ATT,30,0
+355,Dark Scroll for Claw for ATT 70%,claw,ATT,70,0
+356,Scroll for Knuckler for Attack 10%,knuckle,ATT,10,0
+357,Scroll for Knuckler for Attack 60%,knuckle,ATT,60,0
+358,Scroll for Knuckler for Attack 100%,knuckle,ATT,100,0
+359,Dark Scroll for Knuckler for Attack 30%,knuckle,ATT,30,0
+360,Dark Scroll for Knuckler for Attack 70%,knuckle,ATT,70,0
+361,Scroll for Knuckle for Accuracy 10%,knuckle,ACC,10,0
+362,Scroll for Knuckle for Accuracy 60%,knuckle,ACC,60,0
+363,Scroll for Knuckle for Accuracy 100%,knuckle,ACC,100,0
+364,Dark Scroll for Knuckle for Accuracy 30%,knuckle,ACC,30,0
+365,Dark Scroll for Knuckle for Accuracy 70%,knuckle,ACC,70,0
+366,Scroll for Gun for ATT 10%,gun,ATT,10,0
+367,Scroll for Gun for Attack 60%,gun,ATT,60,0
+368,Scroll for Gun for Attack 100%,gun,ATT,100,0
+369,Dark Scroll for Gun for Attack 30%,gun,ATT,30,0
+370,Dark Scroll for Gun for Attack 70%,gun,ATT,70,0
+371,Scroll for Pet Equip. for HP 10%,pet,HP,10,0
+372,Scroll for Pet Equip. for HP 60%,pet,HP,60,0
+373,Scroll for Pet Equip. for HP 100%,pet,HP,100,0
+374,Dark Scroll for Pet Equip. for HP 30%,pet,HP,30,0
+375,Dark Scroll for Pet Equip. for HP 70%,pet,HP,70,0
+376,Scroll for Eye Accessory for INT 10%,eye,INT,10,0
+377,Scroll for Eye Accessory for INT 60%,eye,INT,60,0
+378,Scroll for Eye Accessory for INT 100%,eye,INT,100,0
+379,Dark Scroll for Eye Accessory for INT 30%,eye,INT,30,0
+380,Dark Scroll for Eye Accessory for INT 70%,eye,INT,70,0
+381,Scroll for Spikes on Shoes 10%,shoes,SPIKES,10,0
+382,Scroll for Cape for Cold Protection 10%,cape,COLD,10,0
+383,Scroll for Pet Equip. for Speed 10%,pet,SPEED,10,0
+384,Scroll for Pet Equip. for Speed 60%,pet,SPEED,60,0
+385,Scroll for Pet Equip. for Speed 100%,pet,SPEED,100,0
+386,Scroll for Pet Equip. for Jump 10%,pet,JUMP,10,0
+387,Scroll for Pet Equip. for Jump 60%,pet,JUMP,60,0
+388,Scroll for Pet Equip. for Jump 100%,pet,JUMP,100,0
+389,Clean Slate Scroll 1%,all,CLEAN,1,0
+390,Clean Slate Scroll 3%,all,CLEAN,3,0
+391,Clean Slate Scroll 5%,all,CLEAN,5,0
+392,Clean Slate Scroll 20%,all,CLEAN,20,0
