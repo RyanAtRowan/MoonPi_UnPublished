@@ -22,7 +22,7 @@ namespace Portfolio.Pages.RedBook
 
         public void Top10()
         {
-            Scrolls = _db.Scrolls.OrderByDescending(s => s.Price).Take(10).ToList();
+            Scrolls = _db.Scrolls.OrderByDescending(u => u.Price).Take(10).ToList();
         }
     }
 }

@@ -1,0 +1,47 @@
+﻿@page
+@model Portfolio.Pages.RedBook.ResultsModel
+@{
+}
+
+<div class="align-items-center justify-content-center g-5 py-5 mx-0">
+    @if (Model.SearchResults != null && Model.SearchResults.Any())
+    {
+        <h2 class="py-2" style="text-align:center">Search Results</h2>
+        <!-- List of top 10 -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th colspan="2" style="text-align:center">
+                        Scroll
+                    </th>
+                    <th style="text-align:center">
+                        Price
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SearchResults)
+                {
+                    <tr>
+                        <td style="text-align:center">
+                            @{
+                                var imageUrl = $"~/Assets/{item.Success}.png";
+                            }
+                            <img src="@Url.Content(imageUrl)" />
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td style="text-align:center">
+                            @item.Price
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h2 class="py-2" style="text-align:center">No Results</h2>
+    }
+</div>
