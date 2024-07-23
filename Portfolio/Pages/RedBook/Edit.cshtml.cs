@@ -36,5 +36,10 @@ namespace Portfolio.Pages.RedBook
             // redirect to edit page passing scroll object
             return Page();
         }
+
+        public IActionResult OnPost()
+        {
+            return NotFound();
+        }
     }
 }

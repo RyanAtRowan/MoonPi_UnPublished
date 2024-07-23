@@ -4,7 +4,7 @@
 }
 
 <div class="align-items-center justify-content-center g-5 py-5 mx-0">
-    <h2 class="py-2" style="text-align:center">Edit Price</h2>
+    <h2 class="py-2" style="text-align:center">Update Price</h2>
     <div class="container text-center">
         <div class="row py-4">
             <div class="col  d-flex justify-content-end align-items-center">
@@ -14,7 +14,7 @@
                 Scroll Name
             </div>
         </div>
-        <form method="post">
+        <form>
             <div class="row py-4">
                 <div class="col d-flex justify-content-end align-items-center">
                     Old Price: [insert value]
@@ -24,15 +24,25 @@
                     <span asp-validation-for="Scroll.Price" class="text-danger"></span>
                 </div>
             </div>
+            <div class="row py-4">
+                <div class="col d-flex justify-content-end align-items-center">
+                    Preview:
+                </div>
+                <div class="col d-flex align-items-center">
+                    <span id="convertedValue"></span>
+                </div>
+            </div>
+            <div class="row py-4">
+                <div class="col d-flex justify-content-end align-items-center">
+                    <button type="submit" class="btn btn-primary">
+                        Update
+                    </button>
+                </div>
+                <div class="col d-flex align-items-center">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                </div>
+            </div>
         </form>
-        <div class="row py-4">
-            <div class="col d-flex justify-content-end align-items-center">
-                Preview:
-            </div>
-            <div class="col d-flex align-items-center">
-                <span id="convertedValue"></span>
-            </div>
-        </div>
     </div>
 
 
@@ -59,6 +69,10 @@
                 } else {
                     return num.toString();
                 }
+            }
+
+            function goBack() {
+                window.history.back();
             }
 
         </script>
