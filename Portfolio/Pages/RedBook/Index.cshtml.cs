@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Mono.TextTemplating;
 using Portfolio.Data;
 using Portfolio.Models;
 
@@ -24,5 +25,6 @@ namespace Portfolio.Pages.RedBook
         {
             Scrolls = _db.Scrolls.OrderByDescending(u => u.Price).Take(10).ToList();
         }
+
     }
 }

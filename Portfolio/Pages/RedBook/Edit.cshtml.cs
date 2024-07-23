@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Portfolio.Data;
+using Portfolio.Models;
 
 namespace Portfolio.Pages.RedBook
 {
@@ -13,8 +14,25 @@ namespace Portfolio.Pages.RedBook
             _db = db;
         }
 
-        public void OnGet()
+        public IActionResult OnGet(int? id)
         {
+            // Check id has value
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            // Save scroll using id
+            Scroll scrollFromDb = _db.Scrolls.Find(id);
+
+            // Verify that the passed id is a valid scroll
+            if (scrollFromDb == null)
+            {
+                return NotFound();
+            }
+
+            // redirect to edit page passing scroll object
+            return Page();
 
         }
     }
