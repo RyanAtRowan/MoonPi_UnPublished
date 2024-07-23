@@ -20,9 +20,46 @@
                     Old Price: [insert value]
                 </div>
                 <div class="col d-flex align-items-center">
-                    <input asp-for="Scroll.Price" placeholder="New Price" class="form-control" />
+                    <input asp-for="Scroll.Price" placeholder="New Price" class="form-control" id="numberInput" oninput="convertNumber()" />
                     <span asp-validation-for="Scroll.Price" class="text-danger"></span>
                 </div>
             </div>
         </form>
+        <div class="row py-4">
+            <div class="col d-flex justify-content-end align-items-center">
+                Preview:
+            </div>
+            <div class="col d-flex align-items-center">
+                <span id="convertedValue"></span>
+            </div>
+        </div>
     </div>
+
+
+    @section Scripts {
+        <script>
+            function convertNumber() {
+                var input = document.getElementById("numberInput").value;
+                var converted = formatNumber(input);
+                document.getElementById("convertedValue").innerText = converted;
+            }
+
+            function formatNumber(num) {
+                num = Number(num);
+                if (num >= 1000000000) {
+                    return (num / 1000000000).toFixed(1) + 'b';
+                }
+
+                else if (num >= 1000000) {
+                    return (num / 1000000).toFixed(1) + 'm';
+                }
+
+                else if (num >= 1000) {
+                    return (num / 1000).toFixed(1) + 'k';
+                } else {
+                    return num.toString();
+                }
+            }
+
+        </script>
+    }
