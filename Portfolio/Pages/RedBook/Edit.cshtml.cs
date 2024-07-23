@@ -8,6 +8,8 @@ namespace Portfolio.Pages.RedBook
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _db;
+        [BindProperty]
+        public Scroll Scroll { get; set; }
 
         public EditModel(ApplicationDbContext db)
         {
@@ -33,7 +35,6 @@ namespace Portfolio.Pages.RedBook
 
             // redirect to edit page passing scroll object
             return Page();
-
         }
     }
 }
