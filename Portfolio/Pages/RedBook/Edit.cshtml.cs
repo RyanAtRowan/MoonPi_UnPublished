@@ -39,7 +39,20 @@ namespace Portfolio.Pages.RedBook
 
         public IActionResult OnPost()
         {
-            return NotFound();
+            if (ModelState.IsValid)
+            {
+                Scroll scrollFromDb = _db.Scrolls.Find(Scroll.Id);
+                if (scrollFromDb == null)
+                {
+                    return NotFound(); 
+                }
+
+                scrollFromDb.Price = Scroll.Price;
+                _db.SaveChanges();
+                return RedirectToPage("Index");
+            }
+
+            return Page();
         }
     }
 }

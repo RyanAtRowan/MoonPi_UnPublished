@@ -17,7 +17,12 @@
                 @Model.Scroll.Name
             </div>
         </div>
-        <form>
+        <form method="post">
+            <input asp-for="Scroll.Id" hidden />
+            <input asp-for="Scroll.Name" hidden />
+            <input asp-for="Scroll.Slot" hidden />
+            <input asp-for="Scroll.Stat" hidden />
+
             <div class="row py-4">
                 <div class="col d-flex justify-content-end align-items-center">
                     <span style="font-weight:bold">Old Price:&nbsp;&nbsp;</span>  @Model.Scroll.Price Mesos
