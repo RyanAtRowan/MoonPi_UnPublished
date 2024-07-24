@@ -25,10 +25,10 @@ namespace Portfolio.Pages.RedBook
             }
 
             // Save scroll using id
-            Scroll scrollFromDb = _db.Scrolls.Find(id);
+            Scroll = _db.Scrolls.Find(id);
 
             // Verify that the passed id is a valid scroll
-            if (scrollFromDb == null)
+            if (Scroll == null)
             {
                 return NotFound();
             }
