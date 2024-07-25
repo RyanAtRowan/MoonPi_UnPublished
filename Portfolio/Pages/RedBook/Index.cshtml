@@ -34,7 +34,32 @@
                         @item.Name
                     </td>
                     <td valign="middle" style="text-align:center">
-                        @item.Price
+                        @{
+                            float num = item.Price;
+                            string numConverted;
+                            if (num >= 1000000000)
+                            {
+                                num = (num / 1000000000);
+                                numConverted = num.ToString("F1") + 'b';
+                            }
+
+                            else if (num >= 1000000)
+                            {
+                                num = (num / 1000000);
+                                numConverted = num.ToString("F1") + 'm';
+                            }
+
+                            else if (num >= 1000)
+                            {
+                                num = (num / 1000);
+                                numConverted = num.ToString("F1") + 'k';
+                            }
+                            else
+                            {
+                                numConverted = num.ToString();
+                            }
+                        }
+                    <span>@numConverted</span>                                               
                     </td>
                     <td valign="middle">
                         <div class="d-flex justify-content-center">
@@ -62,3 +87,6 @@
     </table>
 </div>
 
+@section Scripts {
+    <script src="~/js/conversion.js"></script>
+}
