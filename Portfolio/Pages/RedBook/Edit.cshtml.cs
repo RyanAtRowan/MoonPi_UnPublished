@@ -49,6 +49,7 @@ namespace Portfolio.Pages.RedBook
 
                 scrollFromDb.Price = Scroll.Price;
                 _db.SaveChanges();
+                TempData["success"] = "Scroll price has been updated!";
                 return RedirectToPage("Index");
             }
 
