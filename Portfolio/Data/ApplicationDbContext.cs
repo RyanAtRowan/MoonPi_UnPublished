@@ -14,6 +14,7 @@ namespace Portfolio.Data
         }
 
         public DbSet<Scroll> Scrolls { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
         public DbSet<ApplicationUser> applicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

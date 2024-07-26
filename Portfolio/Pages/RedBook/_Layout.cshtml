@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,6 +9,7 @@
     <title>Ryan's Portfolio</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/slate.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -22,28 +26,32 @@
                 <a asp-page="/Redbook/Index" class="navbar-brand">
                     <img src="~/Assets/mapleleaf.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                     Red Book
-                    
+
                 </a>
                 <div class="container">
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item" id="favorites">
-                            <a class="nav-link @(Context.Request.Path == "/Redbook/Favorites" ? "active" : "")" asp-area="" asp-page="/RedBook/Favorites">Favorites</a>
-                        </li>
-                        <li class="nav-item" id="search">
-                            <a class="nav-link @(Context.Request.Path == "/RedBook/Search" ? "active" : "")" asp-area="" asp-page="/RedBook/Search">Find a Scroll</a>
-                        </li>
-                        <li class="nav-item" id="return">
-                            <a class="nav-link" asp-area="" asp-page="/Index">Return to Portfolio</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav me-auto">
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-item" id="favorites">
+                                    <a class="nav-link @(Context.Request.Path == "/Redbook/Favorites" ? "active" : "")" asp-area="" asp-page="/RedBook/Favorites">Favorites</a>
+                                </li>
+                            }
+
+                            <li class="nav-item" id="search">
+                                <a class="nav-link @(Context.Request.Path == "/RedBook/Search" ? "active" : "")" asp-area="" asp-page="/RedBook/Search">Find a Scroll</a>
+                            </li>
+                            <li class="nav-item" id="return">
+                                <a class="nav-link" asp-area="" asp-page="/Index">Return to Portfolio</a>
+                            </li>
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
-            </div>
         </nav>
     </header>
     <div class="container">
@@ -57,13 +65,6 @@
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex" style="font-size: 20px">
-            @*                 <li class="ms-3">
-            <a class="text-body-secondary" href="https://www.facebook.com/Ryandtombleson/">
-            <i class="devicon-facebook-plain">
-            <use xlink:href="#facebook"></use>
-            </i>
-            </a>
-            </li> *@
             <li class="ms-3">
                 <a class="text-body-secondary" href="https://www.linkedin.com/in/ryan-tombleson-6499ba231/">
                     <i class="devicon-linkedin-plain">
