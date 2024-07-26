@@ -11,6 +11,9 @@ namespace Portfolio.Pages.RedBook
         [BindProperty]
         public Scroll Scroll { get; set; }
 
+        // Property to store the original price
+        public int OriginalPrice { get; set; }
+
         public EditModel(ApplicationDbContext db)
         {
             _db = db;
@@ -33,25 +36,36 @@ namespace Portfolio.Pages.RedBook
                 return NotFound();
             }
 
+            // Store the original price
+            OriginalPrice = Scroll.Price;
+
             // redirect to edit page passing scroll object
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            var scrollFromDb = _db.Scrolls.Find(Scroll.Id);
+            if (scrollFromDb == null)
+            {
+                return NotFound();
+            }
+
+            OriginalPrice = scrollFromDb.Price; // Preserve the original price
+
             if (ModelState.IsValid)
             {
-                Scroll scrollFromDb = _db.Scrolls.Find(Scroll.Id);
-                if (scrollFromDb == null)
-                {
-                    return NotFound(); 
-                }
-
                 scrollFromDb.Price = Scroll.Price;
                 _db.SaveChanges();
                 TempData["success"] = "Scroll price has been updated!";
                 return RedirectToPage("Index");
             }
+
+            // Repopulate Scroll object with existing data if validation fails
+            Scroll.Name = scrollFromDb.Name;
+            Scroll.Slot = scrollFromDb.Slot;
+            Scroll.Stat = scrollFromDb.Stat;
+            Scroll.Success = scrollFromDb.Success;
 
             return Page();
         }

@@ -22,10 +22,11 @@
             <input asp-for="Scroll.Name" hidden />
             <input asp-for="Scroll.Slot" hidden />
             <input asp-for="Scroll.Stat" hidden />
+            <input asp-for="Scroll.Success" hidden />
 
             <div class="row py-4">
                 <div class="col d-flex justify-content-end align-items-center">
-                    <span style="font-weight:bold">Old Price:&nbsp;&nbsp;</span>  @Model.Scroll.Price Mesos
+                    <span style="font-weight:bold">Old Price:&nbsp;&nbsp;</span>  @Model.OriginalPrice Mesos
                 </div>
                 <div class="col d-flex align-items-center">
                     <input asp-for="Scroll.Price" placeholder="New Price" class="form-control" id="numberInput" oninput="convertNumber()" style="max-width:250px" />
