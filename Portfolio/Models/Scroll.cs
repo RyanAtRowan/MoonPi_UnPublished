@@ -15,7 +15,7 @@ namespace Portfolio.Models
         [Required]
         public int Success { get; set; }
         // Make sure this never exceeds 2b
-        [Range(1, 2000000000)]
+        [Range(0, 2000000000)]
         public int Price { get; set; }
     }
 
