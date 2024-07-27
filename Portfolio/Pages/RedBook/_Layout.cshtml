@@ -23,7 +23,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
             <div class="container">
-                <a asp-page="/Redbook/Index" class="navbar-brand">
+                <a asp-page="/Redbook/Index" class="navbar-brand border-0">
                     <img src="~/Assets/mapleleaf.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                     Red Book
 
@@ -37,16 +37,16 @@
                         <ul class="navbar-nav me-auto">
                             @if (SignInManager.IsSignedIn(User))
                             {
-                                <li class="nav-item" id="favorites">
-                                    <a class="nav-link @(Context.Request.Path == "/Redbook/Favorites" ? "active" : "")" asp-area="" asp-page="/RedBook/Favorites">Favorites</a>
+                                <li class="nav-item border-0" id="favorites">
+                                    <a class="nav-link border-0 @(Context.Request.Path == "/Redbook/Favorites" ? "active" : "")" asp-area="" asp-page="/RedBook/Favorites">Favorites</a>
                                 </li>
                             }
 
                             <li class="nav-item" id="search">
-                                <a class="nav-link @(Context.Request.Path == "/RedBook/Search" ? "active" : "")" asp-area="" asp-page="/RedBook/Search">Find a Scroll</a>
+                                <a class="nav-link border-0 @(Context.Request.Path == "/RedBook/Search" ? "active" : "")" asp-area="" asp-page="/RedBook/Search">Find a Scroll</a>
                             </li>
                             <li class="nav-item" id="return">
-                                <a class="nav-link" asp-area="" asp-page="/Index">Return to Portfolio</a>
+                                <a class="nav-link border-0" asp-area="" asp-page="/Index">Return to Portfolio</a>
                             </li>
                         </ul>
                         <partial name="_LoginPartial" />
