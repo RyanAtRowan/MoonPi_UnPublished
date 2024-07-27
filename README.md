@@ -1,20 +1,18 @@
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/mapleleaf.png" alt="Logo" width="200" height="200">
   </a>
 
-<h3 align="center">Red Book</h3>
+<h1 align="center">Red Book</h1>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    This project aims to create a solution for saving the price of each scroll in the MMORPG Maplestory. Prices are volatile and change frequently, and the going rate for any given item may change based on time, availability, or marketing trends. Using this solution, users will be able to find the price of an item, even if the item is unavailable due to popularity or scarcity. 
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://www.moon-pi.net/RedBook">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/RyanAtRowan/MoonPi_UnPublished/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/RyanAtRowan/MoonPi_UnPublished/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
