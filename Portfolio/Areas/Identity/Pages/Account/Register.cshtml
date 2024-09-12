@@ -2,6 +2,11 @@
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
+
+    var layout = Request.Query["layout"].ToString();
+    Layout = layout == "RedBook" ? "~/Pages/RedBook/_LayoutRedBook.cshtml" :
+             layout == "GuideMaker" ? "~/Pages/GuideMaker/_LayoutGuideMaker.cshtml" :
+             "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1 style="text-align:center">@ViewData["Title"]</h1>
@@ -9,6 +14,7 @@
 <div class="row justify-content-center">
     <div class="col-md-5">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <input type="hidden" name="layout" value="@Model._layout" />
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">

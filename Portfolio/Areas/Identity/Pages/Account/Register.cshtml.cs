@@ -12,12 +12,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+
 
 namespace Portfolio.Areas.Identity.Pages.Account
 {
@@ -44,6 +46,9 @@ namespace Portfolio.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
         }
+
+        // Store the layout value
+        public string _layout;
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -100,15 +105,32 @@ namespace Portfolio.Areas.Identity.Pages.Account
         }
 
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public async Task OnGetAsync(string returnUrl = null, string layout = null)
         {
+            _layout = layout;
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null, string layout = null)
         {
-            returnUrl ??= Url.Content("~/RedBook");
+            _layout = layout;
+
+            if (_layout == "RedBook")
+            {
+                returnUrl ??= Url.Content("~/RedBook");
+            }
+            else if (_layout == "GuideMaker")
+            {
+                returnUrl ??= Url.Content("~/GuideMaker");
+            }
+            else
+            {
+                returnUrl ??= Url.Content("~/");
+            }
+
+            //returnUrl ??= Url.Content("~/RedBook");
+
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {

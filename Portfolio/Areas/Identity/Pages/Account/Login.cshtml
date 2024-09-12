@@ -3,6 +3,11 @@
 
 @{
     ViewData["Title"] = "Log in";
+
+    var layout = Request.Query["layout"].ToString();
+    Layout = layout == "RedBook" ? "_LayoutRedBook.cshtml" :
+             layout == "GuideMaker" ? "_LayoutGuideMaker.cshtml" :
+             "_LayoutDefault.cshtml";
 }
 
 <h1 style="text-align:center">@ViewData["Title"]</h1>
