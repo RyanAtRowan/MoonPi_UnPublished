@@ -5,8 +5,8 @@
     ViewData["Title"] = "Log in";
 
     var layout = Request.Query["layout"].ToString();
-    Layout = layout == "RedBook" ? "_LayoutRedBook.cshtml" :
-             layout == "GuideMaker" ? "_LayoutGuideMaker.cshtml" :
+    Layout = layout == "RedBook" ? "~/Pages/RedBook/_LayoutRedBook.cshtml" :
+             layout == "GuideMaker" ? "~/Pages/GuideMaker/_LayoutGuideMaker.cshtml" :
              "_LayoutDefault.cshtml";
 }
 
