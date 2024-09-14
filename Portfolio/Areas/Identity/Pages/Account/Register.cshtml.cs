@@ -116,18 +116,7 @@ namespace Portfolio.Areas.Identity.Pages.Account
         {
             _layout = layout;
 
-            if (_layout == "RedBook")
-            {
-                returnUrl ??= Url.Content("~/RedBook");
-            }
-            else if (_layout == "GuideMaker")
-            {
-                returnUrl ??= Url.Content("~/GuideMaker");
-            }
-            else
-            {
-                returnUrl ??= Url.Content("~/");
-            }
+            returnUrl ??= Url.Content("~/RedBook");
 
             //returnUrl ??= Url.Content("~/RedBook");
 

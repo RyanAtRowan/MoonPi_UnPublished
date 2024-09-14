@@ -4,9 +4,7 @@
     ViewData["Title"] = "Register";
 
     var layout = Request.Query["layout"].ToString();
-    Layout = layout == "RedBook" ? "~/Pages/RedBook/_LayoutRedBook.cshtml" :
-             layout == "GuideMaker" ? "~/Pages/GuideMaker/_LayoutGuideMaker.cshtml" :
-             "~/Pages/Shared/_Layout.cshtml";
+    Layout = "~/Pages/RedBook/_LayoutRedBook.cshtml";
 }
 
 <h1 style="text-align:center">@ViewData["Title"]</h1>
