@@ -2,9 +2,9 @@
 @model IndexModel
 @{
 }
-<script src="~/js/site.js"></script>
 
-<div onload="FadeIn(this);">
+
+<div id="fade-in" style="opacity: 0;">
     <div class="row flex-lg-row align-items-center justify-content-center g-5 py-5 mx-0">
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" data-bs-theme="dark">A little about me...</h1>
@@ -16,5 +16,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    var element = document.querySelector('#fade-in');
+    
+    element.style.opacity = 0;
+    
+    void element.offsetWidth; // This forces a browser reflow
+
+    element.style.transition = "opacity 0.5s linear";
+    element.style.opacity = 1;
+
+</script>
 
 
