@@ -6,106 +6,115 @@
 @inject IAntiforgery Antiforgery
 
 <partial name="_Notification" />
-<div class="align-items-center justify-content-center g-5 py-5 mx-0">
-    <!-- List of top 10 -->
-    <form id="favoritesForm">
-        <input name="__RequestVerificationToken" type="hidden" value="@Antiforgery.GetTokens(HttpContext).RequestToken" />
-    </form>
 
-    @if (Model.Scrolls.Any()) {
-        <h2 class="py-2" style="text-align:center">Favorites</h2>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th colspan="2" style="text-align:center">
-                        Scroll
-                    </th>
-                    <th style="text-align:center">
-                        Price
-                    </th>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <th style="text-align:center">
-                            Actions
-                        </th>
-                    }
+<div id="fade-in" style="opacity: 0;">
+    <div class="align-items-center justify-content-center g-5 py-5 mx-0">
+        <!-- List of top 10 -->
+        <form id="favoritesForm">
+            <input name="__RequestVerificationToken" type="hidden" value="@Antiforgery.GetTokens(HttpContext).RequestToken" />
+        </form>
 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Scrolls)
-                {
-                    var isFavorite = Model.FavoriteIds.Contains(item.Id);
+        @if (Model.Scrolls.Any())
+        {
+            <h2 class="py-2" style="text-align:center">Favorites</h2>
+            <table class="table table-bordered table-striped">
+                <thead>
                     <tr>
-                        <td valign="middle" style="text-align:center">
-                            @{
-                                var imageUrl = $"~/Assets/{item.Success}.png";
-                            }
-                            <img src="@Url.Content(imageUrl)" />
-                        </td>
-                        <td valign="middle" style="padding-left:30px">
-                            @item.Name
-                        </td>
-                        <td valign="middle" style="text-align:center">
-                            @{
-                                float num = item.Price;
-                                string numConverted;
-                                if (num >= 1000000000)
-                                {
-                                    num = (num / 1000000000);
-                                    numConverted = num.ToString("F1") + 'b';
-                                }
-
-                                else if (num >= 1000000)
-                                {
-                                    num = (num / 1000000);
-                                    numConverted = num.ToString("F1") + 'm';
-                                }
-
-                                else if (num >= 1000)
-                                {
-                                    num = (num / 1000);
-                                    numConverted = num.ToString("F1") + 'k';
-                                }
-                                else
-                                {
-                                    numConverted = num.ToString();
-                                }
-                            }
-                            <span>@numConverted</span>
-                        </td>
+                        <th colspan="2" style="text-align:center">
+                            Scroll
+                        </th>
+                        <th style="text-align:center">
+                            Price
+                        </th>
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            <td valign="middle">
-                                <div class="d-flex justify-content-center">
-                                    <div class="btn-group" role="group">
-                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                                            </svg>
-                                        </a>
-
-                                        <button class="btn btn-outline-primary" data-scrollid="@item.Id" onclick="toggleFavorite(this)">
-                                            <i class="bi @(isFavorite ? "bi-star-fill" : "bi-star")"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
+                            <th style="text-align:center">
+                                Actions
+                            </th>
                         }
 
                     </tr>
-                }
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Scrolls)
+                    {
+                        var isFavorite = Model.FavoriteIds.Contains(item.Id);
+                        <tr>
+                            <td valign="middle" style="text-align:center">
+                                @{
+                                    var imageUrl = $"~/Assets/{item.Success}.png";
+                                }
+                                <img src="@Url.Content(imageUrl)" />
+                            </td>
+                            <td valign="middle" style="padding-left:30px">
+                                @item.Name
+                            </td>
+                            <td valign="middle" style="text-align:center">
+                                @{
+                                    float num = item.Price;
+                                    string numConverted;
+                                    if (num >= 1000000000)
+                                    {
+                                        num = (num / 1000000000);
+                                        numConverted = num.ToString("F1") + 'b';
+                                    }
 
-            </tbody>
+                                    else if (num >= 1000000)
+                                    {
+                                        num = (num / 1000000);
+                                        numConverted = num.ToString("F1") + 'm';
+                                    }
 
-        </table>
-    }
-    else {
-        <h2 class="py-2" style="text-align:center">No Favorites... yet!</h2>
-    }
-    
+                                    else if (num >= 1000)
+                                    {
+                                        num = (num / 1000);
+                                        numConverted = num.ToString("F1") + 'k';
+                                    }
+                                    else
+                                    {
+                                        numConverted = num.ToString();
+                                    }
+                                }
+                                <span>@numConverted</span>
+                            </td>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <td valign="middle">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="btn-group" role="group">
+                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                                                </svg>
+                                            </a>
+
+                                            <button class="btn btn-outline-primary" data-scrollid="@item.Id" onclick="toggleFavorite(this)">
+                                                <i class="bi @(isFavorite ? "bi-star-fill" : "bi-star")"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        }
+        else
+        {
+            <h2 class="py-2" style="text-align:center">No Favorites... yet!</h2>
+        }
+
+    </div>
 </div>
+
+
+
+<script src="~/js/fade-in.js"></script>
 
 @section Scripts {
     <script>

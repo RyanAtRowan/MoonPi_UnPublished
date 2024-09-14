@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ryan's Portfolio</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/slate.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Journal.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
@@ -22,12 +22,10 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
-            <div class="container">
+            <div class="container mx-1">
                 <a asp-page="/Redbook/Index" class="navbar-brand border-0">
-                    <img src="~/Assets/mapleleaf.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                     Red Book
                 </a>
-                <div class="container">
                     <button class="navbar-toggler border-0" style="position: absolute; right: 10px; top: 10px" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -50,7 +48,6 @@
                         </ul>
                         <partial name="_LoginPartialRedBook" />
                     </div>
-                </div>
         </nav>
     </header>
     <div class="container">
