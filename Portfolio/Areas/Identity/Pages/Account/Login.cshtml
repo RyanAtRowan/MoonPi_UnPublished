@@ -11,14 +11,6 @@
 }
 
 <h1 style="text-align:center">@ViewData["Title"]</h1>
-<p style="text-align:center">
-    <br />
-    <b>Demo Account: </b>
-    <br />
-    User: Demo@demo.com
-    <br />
-    Password: Demo123!
-</p>
 <div class="row justify-content-center">
     <div class="col-md-5">
         <section>
@@ -44,16 +36,30 @@
                 <div>
                     <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
                 </div>
-                <div>
-@*                     <p>
+@*                 <div>
+                    <p>
                         <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p> *@
+                    </p>
                     <p>
                         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
                     </p>
-@*                     <p>
+                    <p>
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p> *@
+                    </p>
+                </div> *@
+            </form>
+            <form id="account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input hidden asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" value="Demo@demo.com" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input hidden asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" value="Demo123!" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Demo</button>
                 </div>
             </form>
         </section>
