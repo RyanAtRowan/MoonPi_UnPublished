@@ -2,16 +2,16 @@
 @model Portfolio.Pages.ProjectsModel
 @{
 }
-<div id="fade-in" style="opacity: 0;>
+<div class="text-lg-start text-center" id="fade-in" style="opacity: 0;">
     <div class="container px-4 py-5" id="featured-3">
         <h2 class="pb-2 text-body-emphasis" data-bs-theme="dark">Projects</h2>
         <p class="pb-2 border-bottom">I strive to deliver innovative solutions and contribute to interesting projects. Feel free to browse through my work and explore the different technologies and approaches that were employed. I'm excited about the possibilities that lie ahead, and I'm eager to connect with like-minded professionals.</p>
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col">
+            <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
                     <i class="devicon-dotnetcore-plain"></i>
                     <i class="devicon-azuresqldatabase-plain"></i>
-                @*                 <i class="devicon-blazor-original"></i>
+                    @*                 <i class="devicon-blazor-original"></i>
                     *@
                 </div>
                 <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Guide Maker <br /><i>(Work in Progress)</i></h3>
@@ -20,7 +20,7 @@
                     <br />
                     <br />
                     Intended Features:
-                    <ul>
+                    <ul class="text-start">
                         <li>
                             The Guide: neatly display guides using both images and expandable text
                         </li>
@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                 </p>
-            @*             <a asp-page="GuideMaker/Index" class="icon-link">
+                @*             <a asp-page="GuideMaker/Index" class="icon-link">
                 Demo
                 <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                 </a> *@
@@ -38,7 +38,7 @@
                     <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                 </a>
             </div>
-            <div class="feature col">
+            <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
                     <i class="devicon-dotnetcore-plain"></i>
                     <i class="devicon-azuresqldatabase-plain"></i>
@@ -46,7 +46,7 @@
                     <i class="devicon-jquery-plain-wordmark"></i>
 
 
-                @*                 <i class="devicon-blazor-original"></i>
+                    @*                 <i class="devicon-blazor-original"></i>
                     *@
                 </div>
                 <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Red Book</h3>
@@ -55,7 +55,7 @@
                     <br />
                     <br />
                     Features:
-                    <ul>
+                    <ul class="text-start">
                         <li>User Login: users can log in and maintain their own favorite scroll list </li>
                         <li>Scroll Search: search through hundreds of scrolls, you may use drop down menus to select which particular attribute you would like to search for.</li>
                         <li>Price Adjust: users can adjust the prices of the items and update the current value of the items in the data base.</li>
@@ -75,7 +75,7 @@
                     <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                 </a>
             </div>
-            <div class="feature col">
+            <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
                     <i class="devicon-dotnetcore-plain"></i>
                     <i class="devicon-javascript-plain px-1"></i>
@@ -87,8 +87,10 @@
                     <br />
                     <br />
                     Features:
-                    <ul>
-                        <li>Bootstrap: many elements of this page are customized bootstrap elements and properties.</li>
+                    <ul class="text-start">
+                        <li>
+                            Bootstrap: many elements of this page are customized bootstrap elements and properties.
+                            </li>
                         <li>
                             Raspberry Pi Deployment: the challenge of deploying a website is particularly satisfying problem to solve.
                             For many, Azure is the first service that comes to mind when trying to host a project. Azure has many
