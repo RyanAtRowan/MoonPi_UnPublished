@@ -3,11 +3,6 @@
 
 @{
     ViewData["Title"] = "Log in";
-
-    var layout = Request.Query["layout"].ToString();
-    Layout = layout == "RedBook" ? "~/Pages/RedBook/_LayoutRedBook.cshtml" :
-             layout == "GuideMaker" ? "~/Pages/GuideMaker/_LayoutGuideMaker.cshtml" :
-             "_LayoutDefault.cshtml";
 }
 
 <div id="fade-in" style="opacity: 0;">

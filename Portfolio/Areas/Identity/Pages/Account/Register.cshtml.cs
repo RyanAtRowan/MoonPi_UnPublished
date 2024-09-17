@@ -118,8 +118,6 @@ namespace Portfolio.Areas.Identity.Pages.Account
 
             returnUrl ??= Url.Content("~/RedBook");
 
-            //returnUrl ??= Url.Content("~/RedBook");
-
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
