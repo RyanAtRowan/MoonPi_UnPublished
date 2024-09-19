@@ -1,230 +1,238 @@
 {
-    "dropdownA": {
-        "" : {
-            "hideB" : [],
-            "hideC" : []
-        },
-        "bottom" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "INT", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "bow" : {
-            "hideB" : ["ATT"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "cape" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "JUMP", "MATT", "SPEED", "SPIKES"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "claw" : {
-            "hideB" : ["ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "crossbow" : {
-            "hideB" : ["ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "dagger" : {
-            "hideB" : ["ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "earring" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "JUMP", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "eye" : {
-            "hideB" : ["ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "face" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "gloves" : {
-            "hideB" : ["ACC", "AVOID", "CLEAN", "COLD", "DEF", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "gun" : {
-            "hideB" : ["ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "helmet" : {
-            "hideB" : ["ATT", "AVOID", "CLEAN", "COLD", "DEX", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "knuckle" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "1HA" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "1HBW" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "1HS" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "overall" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "HP", "JUMP", "MATT", "MDEF", "MP", "SPEED", "SPIKES"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "pet" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "INT", "LUK", "MATT", "MDEF", "MP", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "polearm" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "shield" : {
-            "hideB" : ["ACC", "AVOID", "CLEAN", "COLD", "DEX", "INT", "JUMP", "MDEF", "MP", "SPEED", "SPIKES"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "shoes" : {
-            "hideB" : ["ACC", "ATT", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "LUK", "MATT", "MDEF", "MP", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "spear" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "staff" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "2HA" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "2HBW" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "2HS" : {
-            "hideB" : ["AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "wand" : {
-            "hideB" : ["ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR"],
-            "hideC" : ["1", "3", "5", "20"]
-        }
+  "dropdownA": {
+    "": {
+      "hideB": [],
+      "hideC": []
     },
-
-    "dropdownB": {
-        "" : {
-            "hideA" : [],
-            "hideC" : []
-        },
-        "ACC" : {
-            "hideA" : ["bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "face", "gloves", "gun", "overall", "pet", "shield", "shoes", "staff", "top", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        }, 
-        "ATT" : {
-            "hideA" : ["bottom", "cape", "earring", "eye", "face", "helmet", "overall", "pet", "shoes", "staff", "top", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "AVOID" : {
-            "hideA" : ["bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "CLEAN" : {
-            "hideA" : [],
-            "hideC" : ["10", "30", "60", "70", "100"]
-        },
-        "COLD" : {
-            "hideA" : ["bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20", "30", "60", "70", "100"]
-        },
-        "DEF" : {
-            "hideA" : ["bow", "cape", "claw", "crossbow", "dagger", "eye", "face", "gloves", "gun", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "DEX" : {
-            "hideA" : ["bow", "claw", "crossbow", "dagger", "eye", "face", "gun", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "HP" : {
-            "hideA" : ["bow", "claw", "crossbow", "dagger", "gun", "knuckle", "1HA", "1HBW", "1HS", "overall", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "INT" : {
-            "hideA" : ["bottom", "bow", "claw", "crossbow", "dagger", "face", "gloves", "gun", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "JUMP" : {
-            "hideA" : ["bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "LUK" : {
-            "hideA" : ["bottom", "bow", "claw", "crossbow", "dagger", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "MATT" : {
-            "hideA" : ["bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gun", "helmet", "knuckle", "1HA", "1HBW", "overall", "pet", "polearm", "shoes", "spear", "top", "2HA", "2HBW", "2HS"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "MDEF" : {
-            "hideA" : ["bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "MP" : {
-            "hideA" : ["bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "SPEED" : {
-            "hideA" : ["bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        },
-        "SPIKES" : {
-            "hideA" : ["bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20", "30", "60", "70", "100"]
-        },
-        "STR" : {
-            "hideA" : ["bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand"],
-            "hideC" : ["1", "3", "5", "20"]
-        }
+    "bottom": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "INT", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
     },
-
-    "dropdownC": {
-        "1" : {
-            "hideA" : [],
-            "hideB" : ["ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"]
-        },
-        "3" : {
-            "hideA" : [],
-            "hideB" : ["ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"]
-        },
-        "5" : {
-            "hideA" : [],
-            "hideB" : ["ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"]
-        },
-        "10" : {
-            "hideA" : [],
-            "hideB" : ["CLEAN"]
-        },
-        "20" : {
-            "hideA" : [],
-            "hideB" : ["ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR"]
-        },
-        "30" : {
-            "hideA" : [],
-            "hideB" : ["CLEAN", "COLD", "SPIKES"]
-        },
-        "60" : {
-            "hideA" : [],
-            "hideB" : ["CLEAN", "COLD", "SPIKES"]
-        },
-        "70" : {
-            "hideA" : [],
-            "hideB" : ["CLEAN", "COLD", "SPIKES"]
-        },
-        "100" : {
-            "hideA" : [],
-            "hideB" : ["CLEAN", "COLD", "SPIKES"]
-        }
+    "bow": {
+      "hideB": [ "ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "cape": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "JUMP", "MATT", "SPEED", "SPIKES" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "claw": {
+      "hideB": [ "ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "crossbow": {
+      "hideB": [ "ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "dagger": {
+      "hideB": [ "ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "earring": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "JUMP", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "eye": {
+      "hideB": [ "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "face": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "gloves": {
+      "hideB": [ "ACC", "AVOID", "CLEAN", "COLD", "DEF", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "gun": {
+      "hideB": [ "ACC", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "helmet": {
+      "hideB": [ "ATT", "AVOID", "CLEAN", "COLD", "DEX", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "knuckle": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "1HA": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "1HBW": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "1HS": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "overall": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "HP", "JUMP", "MATT", "MDEF", "MP", "SPEED", "SPIKES" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "pet": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "INT", "LUK", "MATT", "MDEF", "MP", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "polearm": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "shield": {
+      "hideB": [ "ACC", "AVOID", "CLEAN", "COLD", "DEX", "INT", "JUMP", "MDEF", "MP", "SPEED", "SPIKES" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "shoes": {
+      "hideB": [ "ACC", "ATT", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "LUK", "MATT", "MDEF", "MP", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "spear": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "staff": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "2HA": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "2HBW": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "2HS": {
+      "hideB": [ "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "top": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEX", "INT", "JUMP", "MATT", "MDEF", "MP", "SPEED", "SPIKES" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "wand": {
+      "hideB": [ "ACC", "ATT", "AVOID", "CLEAN", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MDEF", "MP", "SPEED", "SPIKES", "STR" ],
+      "hideC": [ "1", "3", "5", "20" ]
     }
+  },
+
+  "dropdownB": {
+    "": {
+      "hideA": [],
+      "hideC": []
+    },
+    "ACC": {
+      "hideA": [ "bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "face", "gloves", "gun", "overall", "pet", "shield", "shoes", "staff", "top", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "ATT": {
+      "hideA": [ "bottom", "cape", "earring", "eye", "face", "helmet", "overall", "pet", "shoes", "staff", "top", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "AVOID": {
+      "hideA": [ "bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "CLEAN": {
+      "hideA": [],
+      "hideC": [ "10", "30", "60", "70", "100" ]
+    },
+    "COLD": {
+      "hideA": [ "bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20", "30", "60", "70", "100" ]
+    },
+    "DEF": {
+      "hideA": [ "bow", "cape", "claw", "crossbow", "dagger", "eye", "face", "gloves", "gun", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "DEX": {
+      "hideA": [ "bow", "claw", "crossbow", "dagger", "eye", "face", "gun", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "HP": {
+      "hideA": [ "bow", "claw", "crossbow", "dagger", "gun", "knuckle", "1HA", "1HBW", "1HS", "overall", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "INT": {
+      "hideA": [ "bottom", "bow", "claw", "crossbow", "dagger", "face", "gloves", "gun", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "JUMP": {
+      "hideA": [ "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "LUK": {
+      "hideA": [ "bottom", "bow", "claw", "crossbow", "dagger", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "MATT": {
+      "hideA": [ "bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gun", "helmet", "knuckle", "1HA", "1HBW", "overall", "pet", "polearm", "shoes", "spear", "top", "2HA", "2HBW", "2HS" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "MDEF": {
+      "hideA": [ "bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "MP": {
+      "hideA": [ "bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "shoes", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "SPEED": {
+      "hideA": [ "bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    },
+    "SPIKES": {
+      "hideA": [ "bottom", "bow", "cape", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "overall", "pet", "polearm", "shield", "spear", "staff", "top", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20", "30", "60", "70", "100" ]
+    },
+    "STR": {
+      "hideA": [ "bottom", "bow", "claw", "crossbow", "dagger", "earring", "eye", "face", "gloves", "gun", "helmet", "knuckle", "1HA", "1HBW", "1HS", "pet", "polearm", "shoes", "spear", "staff", "2HA", "2HBW", "2HS", "wand" ],
+      "hideC": [ "1", "3", "5", "20" ]
+    }
+  },
+
+  "dropdownC": {
+    "": {
+      "hideA": [],
+      "hideB": []
+    },
+    "1": {
+      "hideA": [],
+      "hideB": [ "ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ]
+    },
+    "3": {
+      "hideA": [],
+      "hideB": [ "ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ]
+    },
+    "5": {
+      "hideA": [],
+      "hideB": [ "ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ]
+    },
+    "10": {
+      "hideA": [],
+      "hideB": [ "CLEAN" ]
+    },
+    "20": {
+      "hideA": [],
+      "hideB": [ "ACC", "ATT", "AVOID", "COLD", "DEF", "DEX", "HP", "INT", "JUMP", "LUK", "MATT", "MDEF", "MP", "SPEED", "SPIKES", "STR" ]
+    },
+    "30": {
+      "hideA": [],
+      "hideB": [ "CLEAN", "COLD", "SPIKES" ]
+    },
+    "60": {
+      "hideA": [],
+      "hideB": [ "CLEAN", "COLD", "SPIKES" ]
+    },
+    "70": {
+      "hideA": [],
+      "hideB": [ "CLEAN", "COLD", "SPIKES" ]
+    },
+    "100": {
+      "hideA": [],
+      "hideB": [ "CLEAN", "COLD", "SPIKES" ]
+    }
+  }
 }
