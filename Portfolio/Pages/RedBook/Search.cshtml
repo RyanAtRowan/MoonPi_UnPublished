@@ -14,7 +14,7 @@
                         <div>
                             <h3 class="fs-2 text-center">Item Slot</h3>
                             <!-- Item Drop Down -->
-                            <select class="form-select" style="width:250px" aria-label="Default select example" name="item">
+                            <select class="form-select" style="width:250px" aria-label="Default select example" name="item" id="dropdownA" onchange="updateDropdown('dropdownA', this.value)">
                                 <option selected value="">Any</option>
                                 <option value="bottom">Bottomwear</option>
                                 <option value="bow">Bow</option>
@@ -54,7 +54,7 @@
                         <div>
                             <h3 class="fs-2 text-center">Stat</h3>
                             <!-- Stat Dropdown -->
-                            <select class="form-select" style="width:250px" aria-label="Default select example" name="stat">
+                            <select class="form-select" style="width:250px" aria-label="Default select example" name="stat" id="dropdownB" onchange="updateDropdown('dropdownB', this.value)">
                                 <option selected value="">Any</option>
                                 <option value="ACC">Accuracy</option>
                                 <option value="ATT">Attack</option>
@@ -84,7 +84,7 @@
                             <h3 class="fs-2 text-center">Success Rate</h3>
 
                             <!-- Success Rate Dropdown -->
-                            <select class="form-select" style="width:250px" aria-label="Default select example" name="rate">
+                            <select class="form-select" style="width:250px" aria-label="Default select example" name="rate" id="dropdownC" onchange="updateDropdown('dropdownC', this.value)">
                                 <option selected value="">Any</option>
                                 <option value="1">1%</option>
                                 <option value="3">3%</option>
@@ -114,3 +114,62 @@
 
 
 <script src="~/js/fade-in.js"></script>
+<script>
+    let data = {};  // Global variable to hold the loaded JSON data
+
+    // Function to fetch the JSON file
+    function loadData() {
+        fetch('/Assets/DropDownData.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                data = jsonData;  // Store the loaded JSON data
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    }
+
+    // Call loadData when the page loads
+    window.onload = function () {
+        loadData();  // Load the data before dropdown interactions
+    };
+
+    // Function to update dropdowns based on the selected option
+    function updateDropdown(selectedDropdown, selectedOption) {
+        const hideMap = data[selectedDropdown][selectedOption];
+
+        if (hideMap.hideB) {
+            const dropdownB = document.getElementById('dropdownB');
+            showAllOptions(dropdownB);
+            hideOptions(dropdownB, hideMap.hideB);
+        }
+
+        if (hideMap.hideC) {
+            const dropdownC = document.getElementById('dropdownC');
+            showAllOptions(dropdownC);
+            hideOptions(dropdownC, hideMap.hideC);
+        }
+
+        if (hideMap.hideA) {
+            const dropdownA = document.getElementById('dropdownA');
+            showAllOptions(dropdownA);
+            hideOptions(dropdownA, hideMap.hideA);
+        }
+    }
+
+    // Function to hide specified options
+    function hideOptions(dropdown, optionsToHide) {
+        optionsToHide.forEach(optionValue => {
+            const option = dropdown.querySelector(`option[value="${optionValue}"]`);
+            if (option) {
+                option.hidden = true;
+            }
+        });
+    }
+
+    // Function to show all options in a dropdown
+    function showAllOptions(dropdown) {
+        Array.from(dropdown.options).forEach(option => {
+            option.hidden = false;
+        });
+    }
+
+</script>
