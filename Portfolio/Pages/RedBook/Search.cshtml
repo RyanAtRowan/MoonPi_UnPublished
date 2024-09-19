@@ -161,21 +161,20 @@
         }
     }
 
-    // Function to hide specified options
     function hideOptions(dropdown, optionsToHide) {
         optionsToHide.forEach(optionValue => {
             const option = dropdown.querySelector(`option[value="${optionValue}"]`);
             if (option) {
-                option.hidden = true;
+                option.style.display = "none";  // Instead of using hidden
             }
         });
     }
 
-    // Function to show all options in a dropdown
     function showAllOptions(dropdown) {
         Array.from(dropdown.options).forEach(option => {
-            option.hidden = false;
+            option.style.display = "block";  // Reset to show options
         });
     }
+
 
 </script>
