@@ -117,12 +117,18 @@
 <script>
     let data = {};  // Global variable to hold the loaded JSON data
 
-    // Function to fetch the JSON file
+    // Function to fetch the JSON file through the API proxy
     function loadData() {
-        fetch('/Assets/DropDownData.json')
-            .then(response => response.json())
+        fetch('/api/JsonProxy/fetchJson')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(jsonData => {
                 data = jsonData;  // Store the loaded JSON data
+                console.log('JSON data loaded successfully:', data);
             })
             .catch(error => console.error('Error loading JSON:', error));
     }
