@@ -28,7 +28,7 @@ namespace Portfolio.Controllers
             if (result.Succeeded)
             {
                 _logger.LogInformation("Demo user logged in.");
-                return LocalRedirect("~/RedBook/Index"); // Redirect to your main page or demo area
+                return Redirect(Request.Headers["Referer"].ToString()); // Redirect to last page
             }
             else
             {
