@@ -112,12 +112,11 @@
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.6.2/fetch.min.js"></script>
 <script src="~/js/fade-in.js"></script>
 <script>
-    let data = {};  // Global variable to hold the loaded JSON data
+    let data = {}; // For JSON
 
-    // Function to fetch the JSON file through the API proxy
+    // Fetch the JSON file through the API proxy
     function loadData() {
         fetch('/api/JsonProxy/fetchJson')
             .then(response => {
@@ -135,10 +134,10 @@
 
     // Call loadData when the page loads
     window.onload = function () {
-        loadData();  // Load the data before dropdown interactions
+        loadData();  
     };
 
-    // Function to update dropdowns based on the selected option
+    // Update dropdowns based on the selected option
     function updateDropdown(selectedDropdown, selectedOption) {
         const hideMap = data[selectedDropdown][selectedOption];
 
@@ -165,14 +164,14 @@
         optionsToHide.forEach(optionValue => {
             const option = dropdown.querySelector(`option[value="${optionValue}"]`);
             if (option) {
-                option.style.display = "none";  // Instead of using hidden
+                option.style.display = "none";  
             }
         });
     }
 
     function showAllOptions(dropdown) {
         Array.from(dropdown.options).forEach(option => {
-            option.style.display = "block";  // Reset to show options
+            option.style.display = "block"; 
         });
     }
 

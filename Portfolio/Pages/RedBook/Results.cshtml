@@ -13,7 +13,7 @@
         @if (Model.SearchResults != null && Model.SearchResults.Any())
         {
             <h2 class="py-2" style="text-align:center">Search Results</h2>
-            <!-- List of top 10 -->
+            <!-- Search Results -->
             <form id="favoritesForm">
                 <input name="__RequestVerificationToken" type="hidden" value="@Antiforgery.GetTokens(HttpContext).RequestToken" />
             </form>
