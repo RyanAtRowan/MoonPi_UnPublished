@@ -63,6 +63,12 @@ namespace Portfolio.Pages.RedBook
                 );
             }
 
+            //// If this is an AJAX request, return the SearchResults as JSON for DataTables
+            //if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            //{
+            //    return new JsonResult(new { data = SearchResults });
+            //}
+
             return Page();
         }
 
@@ -90,5 +96,7 @@ namespace Portfolio.Pages.RedBook
             await _db.SaveChangesAsync();
             return new JsonResult(new { success = true });
         }
+
+
     }
 }
