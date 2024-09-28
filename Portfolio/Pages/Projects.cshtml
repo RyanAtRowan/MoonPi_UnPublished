@@ -1,20 +1,29 @@
 ﻿@page
 @model Portfolio.Pages.ProjectsModel
 @{
+    // Razor page to display a list of my projects, each with a description and relevant links.
 }
+
+<!-- Main content container with fade-in effect -->
 <div class="text-lg-start text-center" id="fade-in" style="opacity: 0;">
     <div class="container px-4 py-5" id="featured-3">
+
+        <!-- Page title and description -->
         <h2 class="pb-2 text-body-emphasis" data-bs-theme="dark">Projects</h2>
         <p class="pb-2 border-bottom">I strive to deliver innovative solutions and contribute to interesting projects. Feel free to browse through my work and explore the different technologies and approaches that were employed. I'm excited about the possibilities that lie ahead, and I'm eager to connect with like-minded professionals.</p>
+
+        <!-- Project cards, using Bootstrap grid layout -->
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+            <!-- Guide Maker Project (Work in Progress) -->
             <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
+                    <!-- Tech stack icons -->
                     <i class="devicon-dotnetcore-plain"></i>
                     <i class="devicon-azuresqldatabase-plain"></i>
-                    @*                 <i class="devicon-blazor-original"></i>
-                    *@
                 </div>
                 <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Guide Maker <br /><i>(Work in Progress)</i></h3>
+                <!-- Project Description -->
                 <p>
                     This is a website that will help users create guides using images, texts, and sections.
                     <br />
@@ -29,27 +38,28 @@
                         </li>
                     </ul>
                 </p>
-                @*             <a asp-page="GuideMaker/Index" class="icon-link">
-                Demo
-                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                </a> *@
+                <!-- Project Links (Demo, GitHub, Documentation) -->             
+                @*<a asp-page="GuideMaker/Index" class="icon-link"> Demo <svg class="bi"><use xlink:href="#chevron-right"></use></svg></a>*@
                 <a href="https://drive.google.com/file/d/18mHRi8P5zpaDk1mt1CmFBtQe_i10Ley4/view?usp=sharing" class="icon-link">
                     Design Document
                     <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                 </a>
             </div>
+
+            <!-- Red Book Project -->
             <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
+                    <!-- Tech stack icons -->
                     <i class="devicon-dotnetcore-plain"></i>
                     <i class="devicon-azuresqldatabase-plain"></i>
                     <i class="devicon-javascript-plain px-1"></i>
                     <i class="devicon-jquery-plain-wordmark"></i>
 
 
-                    @*                 <i class="devicon-blazor-original"></i>
-                    *@
                 </div>
+
                 <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Red Book</h3>
+                <!-- Project Description -->
                 <p>
                     A Web App that will allow you to select your favorite Maplestory Scrolls and assign prices to them.
                     <br />
@@ -62,6 +72,8 @@
                         <li>Top 10: queries the database and grabs the top 10 highest price scrolls in the game.</li>
                     </ul>
                 </p>
+
+                <!-- Project Links (Demo, GitHub, Documentation) -->
                 <a asp-page="/RedBook/Index" class="icon-link">
                     Demo
                     <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
@@ -75,13 +87,17 @@
                     <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                 </a>
             </div>
+
+            <!-- Portfolio Project -->
             <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
+                    <!-- Tech stack icons -->
                     <i class="devicon-dotnetcore-plain"></i>
                     <i class="devicon-javascript-plain px-1"></i>
                     <i class="devicon-raspberrypi-plain"></i>
                 </div>
                 <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Portfolio</h3>
+                <!-- Project Description -->
                 <p>
                     This website was created using ASP.NET Core with Razor pages.
                     <br />
@@ -99,6 +115,8 @@
                         </li>
                     </ul>
                 </p>
+
+                <!-- Project Links (Demo, GitHub, Documentation) -->
                 <a href="https://drive.google.com/file/d/1U9V9fAHDfpWO-uK0cthwSfv5AaeUEmwf/view?usp=drive_link" class="icon-link">
                     Design Document
                     <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
@@ -108,5 +126,6 @@
     </div>
 </div>
 
+<!-- Fade in page on load -->
 <script src="~/js/fade-in.js"></script>
 
