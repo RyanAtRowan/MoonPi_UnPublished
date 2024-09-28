@@ -1,19 +1,33 @@
 ﻿@page
 @model Portfolio.Pages.ContactModel
 @{
+    // Razor page to display my contact information, including phone, email, and resume links.
 }
+
+<!-- Main content container with a fade-in effect -->
 <div class="text-lg-start text-center" id="fade-in" style="opacity: 0;">
     <div class="container px-4 py-5" id="hanging-icons">
+
+        <!-- Page title and description -->
         <h2 class="pb-2 border-bottom text-body-emphasis" data-bs-theme="dark">Contact Me</h2>
-        <p>I am excited about the possibilities that lie ahead, and eager to connect with like-minded professionals. Thank you for visiting, and I look forward to the opportunity to collaborate and contribute to your organization's success.</p>
+        <p>
+            I am excited about the possibilities that lie ahead, and eager to connect with like-minded professionals. 
+            Thank you for visiting, and I look forward to the opportunity to collaborate and contribute to your organization's success.
+        </p>
+
+        <!-- Contact Methods using Bootstrap grid system -->
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+            <!-- Phone Section -->
             <div class="col d-flex align-items-center align-items-lg-start justify-content-center" data-bs-theme="dark">
+                <!-- Hidden icon for larger screens -->
                 <div class="d-none icon-square text-body-emphasis bg-primary d-lg-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3" style="border-radius: 5px; overflow: hidden;">
                     <svg class="px-1 py-1" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
                     </svg>
                 </div>
                 <div>
+                    <!-- Phone heading and button -->
                     <h3 class="fs-2 text-body-emphasis">Phone</h3>
                     <p style="text-decoration: none; opacity: .75;">(856)-285-0190</p>
                     <a href="tel:8562850190" class="btn btn-primary">
@@ -21,7 +35,10 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Email Section -->
             <div class="col d-flex align-items-center align-items-lg-start justify-content-center" data-bs-theme="dark">
+                <!-- Hidden icon for larger screens -->
                 <div class="d-none icon-square text-body-emphasis bg-primary d-lg-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3" style="border-radius: 5px; overflow: hidden;">
                     <svg class="px-1 py-1" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
                         <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
@@ -29,6 +46,7 @@
                     </svg>
                 </div>
                 <div>
+                    <!-- Email heading and button -->
                     <h3 class="fs-2 text-body-emphasis">Email</h3>
                     <p style="text-decoration: none; opacity: .75;" >RyanDouglasTombleson@gmail.com</p>
                     <a href="mailto:RyanDouglasTombleson@gmail.com" class="btn btn-primary">
@@ -36,13 +54,17 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Resume Section -->
             <div class="col d-flex align-items-center align-items-lg-start justify-content-center" data-bs-theme="dark">
+                <!-- Hidden icon for larger screens -->
                 <div class="d-none icon-square text-body-emphasis bg-primary d-lg-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3" style="border-radius: 5px; overflow: hidden;">
                     <svg class="px-1 py-1" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
                     </svg>
                 </div>
                 <div>
+                    <!-- Resume heading and button -->
                     <h3 class="fs-2 text-body-emphasis">Resume</h3>
                     <p style="opacity: .75;">Use the button below to view my resume.</p>
                     <a href="https://drive.google.com/file/d/1XzHxFnsstFuOU3EeYXKQcYoxP5Awnirc/view?usp=sharing" class="btn btn-primary">
@@ -50,8 +72,10 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </div>
+
+        </div> <!-- End row -->
+    </div> <!-- End container -->
 </div>
 
+<!-- Fade in page on load -->
 <script src="~/js/fade-in.js"></script>

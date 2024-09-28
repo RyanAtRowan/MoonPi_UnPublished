@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/vapor.css" asp-append-version="true" />
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link rel="stylesheet" href="//cdn.datatables.net/2.1.7/css/dataTables.dataTables.min.css" />
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
@@ -18,27 +17,6 @@
 </head>
 <body>
     <header>
-@*         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item" id="home">
-                            <a class="nav-link @(Context.Request.Path == "/" ? "active" : "")" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item" id="projects">
-                            <a class="nav-link @(Context.Request.Path == "/Projects" ? "active" : "")" asp-area="" asp-page="/Projects">Projects</a>
-                        </li>
-                        <li class="nav-item" id="contact">
-                            <a class="nav-link @(Context.Request.Path == "/Contact" ? "active" : "")" asp-area="" asp-page="/Contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> *@
         <nav class="navbar navbar-expand-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
             <div class="container">
                 <div class="d-none d-sm-flex justify-content-between w-100">
@@ -113,7 +91,6 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="//cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
