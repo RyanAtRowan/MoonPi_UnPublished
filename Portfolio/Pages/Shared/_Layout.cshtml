@@ -1,13 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="~/Assets/favicon.ico" />
+
+    <!-- Meta tags for charset and responsive design -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page title -->
     <title>Ryan's Portfolio</title>
+
+    <!-- Local CSS files -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/vapor.css" asp-append-version="true" />
+
+    <!-- Devicon CDN for tech stack icons -->
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- SVG symbol (hidden) for chevron icons on Projects page -->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
@@ -15,12 +26,15 @@
     </svg>
 
 </head>
+
+
 <body>
     <header>
+        <!-- Navbar with Bootstrap classes -->
         <nav class="navbar navbar-expand-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
             <div class="container">
+                <!-- Normal navbar for larger screens -->
                 <div class="d-none d-sm-flex justify-content-between w-100">
-                    <!-- Normal navbar for larger screens -->
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item" id="home">
                             <a class="nav-link @(Context.Request.Path == "/" ? "active" : "")" asp-area="" asp-page="/Index">Home</a>
@@ -36,62 +50,58 @@
 
                 <!-- Navbar layout for small screens -->
                 <div class="d-sm-none d-flex justify-content-between w-100">
-                        <!-- Normal navbar for larger screens -->
-                        <ul class="navbar-nav flex-grow-1 list-group-horizontal">
+                    <ul class="navbar-nav flex-grow-1 list-group-horizontal">
                         <li class="nav-item text-center w-100" id="home">
                             <a class="nav-link @(Context.Request.Path == "/" ? "active" : "")" asp-area="" asp-page="/Index">Home</a>
-                            </li>
+                        </li>
                         <li class="nav-item text-center w-100" id="projects">
                             <a class="nav-link @(Context.Request.Path == "/Projects" ? "active" : "")" asp-area="" asp-page="/Projects">Projects</a>
-                            </li>
+                        </li>
                         <li class="nav-item text-center w-100" id="contact">
                             <a class="nav-link @(Context.Request.Path == "/Contact" ? "active" : "")" asp-area="" asp-page="/Contact">Contact</a>
-                            </li>
-                        </ul>
-
-            </div>
+                        </li>
+                    </ul>
+                </div>
         </nav>
-
     </header>
+
+    <!-- Main content -->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-        <footer class="footer d-flex flex-wrap justify-content-between py-3 mt-4 px-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <span class="mb-3 mb-md-0 text-body-secondary"></span>
-            </div>
 
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex" style="font-size: 20px">
-@*                 <li class="ms-3">
-                    <a class="text-body-secondary" href="https://www.facebook.com/Ryandtombleson/">
-                        <i class="devicon-facebook-plain">
-                            <use xlink:href="#facebook"></use>
-                        </i>
-                    </a>
-                </li> *@
-                <li class="ms-3">
-                    <a class="text-body-secondary" href="https://www.linkedin.com/in/ryan-tombleson-6499ba231/">
-                        <i class="devicon-linkedin-plain">
-                            <use xlink:href="#linkedin"></use>
-                        </i>
-                    </a>
-                </li>
-                <li class="ms-3">
-                    <a class="text-body-secondary" href="https://github.com/RyanAtRowan">
-                        <i class="devicon-github-original">
-                            <use xlink:href="#github"></use>
-                        </i>
-                    </a>
-                </li>
-            </ul>
-        </footer>
+    <!-- Footer section -->
+    <footer class="footer d-flex flex-wrap justify-content-between py-3 mt-4 px-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-body-secondary"></span>
+        </div>
 
+        <!-- Social media links in footer -->
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex" style="font-size: 20px">
+            <li class="ms-3">
+                <a class="text-body-secondary" href="https://www.linkedin.com/in/ryan-tombleson-6499ba231/">
+                    <i class="devicon-linkedin-plain">
+                        <use xlink:href="#linkedin"></use>
+                    </i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="text-body-secondary" href="https://github.com/RyanAtRowan">
+                    <i class="devicon-github-original">
+                        <use xlink:href="#github"></use>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </footer>
 
+    <!-- Scripts for jQuery and Bootstrap (hosted locally) -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Optional script section for individual pages -->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
