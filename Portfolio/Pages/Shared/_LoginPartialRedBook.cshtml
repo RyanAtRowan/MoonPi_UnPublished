@@ -7,11 +7,12 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
+        <!-- Show a welcome message and logout option for signed-in users -->
         <li class="nav-item">
-@*             <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
- *@            <span style="text-decoration: none; opacity: .5;" class="nav-link disabled border-0 text-light">Hello @UserManager.GetUserName(User)!</span>
+            <span style="text-decoration: none; opacity: .5;" class="nav-link disabled border-0 text-light">Hello @UserManager.GetUserName(User)!</span>
         </li>
         <li class="nav-item">
+            <!-- Logout form (using form to send a POST request) -->
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout">
                 <button id="logout" type="submit" class="nav-link btn btn-link border-0">Logout</button>
             </form>
@@ -19,14 +20,18 @@
     }
     else
     {
+        <!-- Show register and login options for users who are not signed in -->
         <li class="nav-item">
             <a class="nav-link border-0" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
         <li class="nav-item">
             <a class="nav-link border-0" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
+        <!-- Demo login option (custom action) -->
         <li class="nav-item">
-            <a class="nav-link" asp-controller="Account" asp-action="DemoLogin">Demo</a>
+            <a class="nav-link" asp-controller="Account" asp-action="DemoLogin">
+                Demo
+            </a>
         </li>
     }
 </ul>
