@@ -5,15 +5,21 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject IAntiforgery Antiforgery
 
+<!-- Notification partial for displaying messages -->
 <partial name="_Notification" />
+
+<!-- Fade-in effect for the content -->
 <div id="fade-in" style="opacity: 0;">
     <div class="align-items-center justify-content-center g-5 py-5 mx-0">
         <h2 class="py-2" style="text-align:center">Top 10 Highest Price Scrolls</h2>
-        <!-- List of top 10 -->
+
+
+        <!-- Form for handling favorite actions with anti-forgery token -->
         <form id="favoritesForm">
             <input name="__RequestVerificationToken" type="hidden" value="@Antiforgery.GetTokens(HttpContext).RequestToken" />
         </form>
 
+        <!-- Table displaying top 10 highest priced scrolls -->
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -23,6 +29,7 @@
                     <th style="text-align:center">
                         Price
                     </th>
+                    <!-- Display 'Actions' column only if user is signed in -->
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <th style="text-align:center">
@@ -33,19 +40,26 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Loop through the scrolls and display each scroll -->
                 @foreach (var item in Model.Scrolls)
                 {
                     var isFavorite = Model.FavoriteIds.Contains(item.Id);
                     <tr>
+
+                        <!-- Display scroll image -->
                         <td valign="middle" style="text-align:center">
                             @{
                                 var imageUrl = $"~/Assets/{item.Success}.png";
                             }
                             <img src="@Url.Content(imageUrl)" />
                         </td>
+
+                        <!-- Display scroll name -->
                         <td valign="middle">
                             @item.Name
                         </td>
+
+                        <!-- Display scroll price, formatted as billions (b), millions (m), or thousands (k) -->
                         <td valign="middle" style="text-align:center">
                             @{
                                 float num = item.Price;
@@ -74,11 +88,14 @@
                             }
                             <span>@numConverted</span>
                         </td>
+
+                        <!-- Actions column for signed-in users to edit or toggle favorites -->
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <td valign="middle">
                                 <div class="d-flex justify-content-center">
                                     <div class="btn-group" role="group">
+                                        <!-- Edit button -->
                                         <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -86,6 +103,7 @@
                                             </svg>
                                         </a>
 
+                                        <!-- Toggle favorite button -->
                                         <button class="btn btn-outline-primary" data-scrollid="@item.Id" onclick="toggleFavorite(this)">
                                             <i class="bi @(isFavorite ? "bi-star-fill" : "bi-star")"></i>
                                         </button>
@@ -104,28 +122,34 @@
 
 </div>
 
+<!-- Fade-in Effect -->
 <script src="~/js/fade-in.js"></script>
 
 @section Scripts {
     <script>
+        // Toggle favorite status
         function toggleFavorite(button) {
             var scrollId = parseInt(button.getAttribute('data-scrollid'), 10);
 
+            // Validate scroll ID
             if (isNaN(scrollId)) {
                 console.error('scrollId is not a valid number');
                 return;
             }
 
+            // Retrieve CSRF token
             const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
             if (!token) {
                 console.error('Anti-forgery token not found');
                 return;
             }
 
+            // Prepare form data for POST request
             const formData = new FormData();
             formData.append('scrollId', scrollId);
             formData.append('__RequestVerificationToken', token);
 
+            // Send POST request to toggle favorite
             fetch('@Url.Page("/RedBook/Index", "OnPost")', {
                 method: 'POST',
                 body: formData
