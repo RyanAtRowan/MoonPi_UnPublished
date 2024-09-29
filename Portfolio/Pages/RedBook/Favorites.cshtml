@@ -5,18 +5,23 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject IAntiforgery Antiforgery
 
+<!-- Notification partial for displaying messages -->
 <partial name="_Notification" />
 
+<!-- Fade-in effect for the content -->
 <div id="fade-in" style="opacity: 0;">
     <div class="align-items-center justify-content-center g-5 py-5 mx-0">
-        <!-- List of Favorites -->
+        <!-- Form for handling favorite actions with anti-forgery token -->
         <form id="favoritesForm">
             <input name="__RequestVerificationToken" type="hidden" value="@Antiforgery.GetTokens(HttpContext).RequestToken" />
         </form>
 
+        <!-- Check if there are any scrolls marked as favorites -->
         @if (Model.Scrolls.Any())
         {
             <h2 class="py-2" style="text-align:center">Favorites</h2>
+
+            <!-- Favorites table -->
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -26,6 +31,7 @@
                         <th style="text-align:center">
                             Price
                         </th>
+                        <!-- Show 'Actions' column only if the user is signed in -->
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <th style="text-align:center">
@@ -36,19 +42,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Loop through the user's favorite scrolls and display them -->
                     @foreach (var item in Model.Scrolls)
                     {
                         var isFavorite = Model.FavoriteIds.Contains(item.Id);
                         <tr>
+                            <!-- Scroll Image -->
                             <td valign="middle" style="text-align:center">
                                 @{
                                     var imageUrl = $"~/Assets/{item.Success}.png";
                                 }
                                 <img src="@Url.Content(imageUrl)" />
                             </td>
+
+                            <!-- Scroll Name -->
                             <td valign="middle" style="padding-left:30px">
                                 @item.Name
                             </td>
+
+                            <!-- Scroll Price (formatted in billions, millions, or thousands) -->
                             <td valign="middle" style="text-align:center">
                                 @{
                                     float num = item.Price;
@@ -77,6 +89,8 @@
                                 }
                                 <span>@numConverted</span>
                             </td>
+
+                            <!-- Actions column for signed-in users -->
                             @if (SignInManager.IsSignedIn(User))
                             {
                                 <td valign="middle">
@@ -106,6 +120,7 @@
         }
         else
         {
+            <!-- Display message when there are no favorite scrolls -->
             <h2 class="py-2" style="text-align:center">No Favorites... yet!</h2>
         }
 
@@ -113,29 +128,34 @@
 </div>
 
 
-
+<!-- Fade-in Effect -->
 <script src="~/js/fade-in.js"></script>
 
 @section Scripts {
     <script>
+        // Function to toggle favorite status
         function toggleFavorite(button) {
             var scrollId = parseInt(button.getAttribute('data-scrollid'), 10);
 
+            // Validate scroll ID
             if (isNaN(scrollId)) {
                 console.error('scrollId is not a valid number');
                 return;
             }
 
+            // Retrieve CSRF token for security
             const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
             if (!token) {
                 console.error('Anti-forgery token not found');
                 return;
             }
 
+            // Prepare form data for POST request
             const formData = new FormData();
             formData.append('scrollId', scrollId);
             formData.append('__RequestVerificationToken', token);
 
+            // Send POST request to toggle favorite status
             fetch('@Url.Page("/RedBook/Index", "OnPost")', {
                 method: 'POST',
                 body: formData
