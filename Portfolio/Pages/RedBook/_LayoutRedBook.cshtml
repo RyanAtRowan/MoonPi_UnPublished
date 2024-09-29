@@ -3,63 +3,90 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Assets/favicon.ico" />
+
+    <!-- Meta tags for charset and responsive design -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ryan's Portfolio</title>
+
+    <!-- Page title -->
+    <title>Red Book</title>
+
+    <!-- Local CSS files -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Journal.css" asp-append-version="true" />
+
+    <!-- External CDN links for Bootstrap Icons and Devicons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- Toastr notifications (external CSS) -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-        <symbol id="chevron-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
-        </symbol>
-    </svg>
 
 </head>
+
+
 <body>
+    <!-- Header with responsive navbar -->
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
             <div class="container">
+                <!-- Brand linked to the Red book homepage -->
                 <a asp-page="/Redbook/Index" class="navbar-brand border-0">
                     Red Book
                 </a>
+
+                <!-- Navbar toggle button for small screens -->
                     <button class="navbar-toggler border-0" style="position: absolute; right: 10px; top: 10px" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
+                <!-- Collapsible navbar content -->
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                         <ul class="navbar-nav me-auto">
-                            @if (SignInManager.IsSignedIn(User))
+                        <!-- Only show Favorites if the user is signed in -->
+                        @if (SignInManager.IsSignedIn(User))
                             {
                                 <li class="nav-item border-0" id="favorites">
                                     <a class="nav-link border-0 @(Context.Request.Path == "/Redbook/Favorites" ? "active" : "")" asp-area="" asp-page="/RedBook/Favorites">Favorites</a>
                                 </li>
                             }
 
+                        <!-- Link to scroll search page -->
                             <li class="nav-item" id="search">
                                 <a class="nav-link border-0 @(Context.Request.Path == "/RedBook/Search" ? "active" : "")" asp-area="" asp-page="/RedBook/Search">Find a Scroll</a>
                             </li>
+
+                        <!-- Link back to the portfolio homepage -->
                             <li class="nav-item" id="return">
                                 <a class="nav-link border-0" asp-area="" asp-page="/Index">Return to Portfolio</a>
                             </li>
                         </ul>
+
+                    <!-- Login/Logout partial view (customized) -->
                         <partial name="_LoginPartialRedBook" />
                     </div>
         </nav>
     </header>
+
+    <!-- Main content container -->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+
+    <!-- Footer section -->
     <footer class="footer d-flex flex-wrap justify-content-between py-3 mt-4 px-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <span class="mb-3 mb-md-0 text-body-secondary"></span>
         </div>
 
+        <!-- Social media links in the footer -->
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex" style="font-size: 20px">
             <li class="ms-3">
                 <a class="text-body-secondary" href="https://www.linkedin.com/in/ryan-tombleson-6499ba231/">
@@ -78,10 +105,11 @@
         </ul>
     </footer>
 
-
+    <!-- Local scripts for jQuery and Bootstrap -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Optional script section for individual pages -->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
