@@ -1,12 +1,12 @@
 ﻿@page
 @model Portfolio.Pages.RedBook.SearchModel
 @{
+    // Razor Page for searching scrolls using dropdown filters (Item Slot, Stat, and Success Rate).
 }
 
 <div id="fade-in" style="opacity: 0;">
     <div class="align-items-center justify-content-center g-5 py-5 mx-0" id="search">
         <form method="post">
-
             <div class="" id="hanging-icons">
                 <h2 class="py-2" style="text-align:center">Search for a Scroll</h2>
                 <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
@@ -112,9 +112,12 @@
 
 </div>
 
+<!-- Fade-in Effect -->
 <script src="~/js/fade-in.js"></script>
+
+<!-- Dynamic Dropdown Logic -->
 <script>
-    let data = {}; // For JSON
+    let data = {}; // Variable to store JSON data
 
     // Fetch the JSON file through the API proxy
     function loadData() {
@@ -132,15 +135,16 @@
             .catch(error => console.error('Error loading JSON:', error));
     }
 
-    // Call loadData when the page loads
+    // Load JSON data when the page loads
     window.onload = function () {
         loadData();  
     };
 
-    // Update dropdowns based on the selected option
+    // Update the visibility of dropdown options based on the selected value
     function updateDropdown(selectedDropdown, selectedOption) {
         const hideMap = data[selectedDropdown][selectedOption];
 
+        // Update other dropdowns based on the selected value
         if (hideMap.hideB) {
             const dropdownB = document.getElementById('dropdownB');
             showAllOptions(dropdownB);
@@ -160,6 +164,7 @@
         }
     }
 
+    // Hide specific options in the dropdown
     function hideOptions(dropdown, optionsToHide) {
         optionsToHide.forEach(optionValue => {
             const option = dropdown.querySelector(`option[value="${optionValue}"]`);
@@ -169,6 +174,7 @@
         });
     }
 
+    // Show all options in the dropdown
     function showAllOptions(dropdown) {
         Array.from(dropdown.options).forEach(option => {
             option.style.display = "block"; 
