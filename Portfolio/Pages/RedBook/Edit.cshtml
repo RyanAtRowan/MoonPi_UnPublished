@@ -1,22 +1,30 @@
 ﻿@page
 @model Portfolio.Pages.RedBook.EditModel
 @{
+    // Razor Page for updating the price of a selected scroll
 }
+
 
 <div class="align-items-center justify-content-center g-5 py-5 mx-0">
     <h2 class="py-2" style="text-align:center">Update Price</h2>
+
     <div class="container text-center">
+        <!-- Row to display the scroll image and name -->
         <div class="row py-4">
             <div class="col  d-flex justify-content-end align-items-center">
                 @{
+                    // Set the image URL based on the scroll's success rate
                     var imageUrl = $"~/Assets/{Model.Scroll.Success}.png";
                 }
                 <img src="@Url.Content(imageUrl)" class="px-3" />
             </div>
             <div class="col d-flex align-items-center">
+                <!-- Display the scroll's name -->
                 @Model.Scroll.Name
             </div>
         </div>
+
+        <!-- Form for updating the scroll price -->
         <form method="post">
             <input asp-for="Scroll.Id" hidden />
             <input asp-for="Scroll.Name" hidden />
@@ -24,15 +32,19 @@
             <input asp-for="Scroll.Stat" hidden />
             <input asp-for="Scroll.Success" hidden />
 
+            <!-- Row for displaying the current price and input for new price -->
             <div class="row py-4">
                 <div class="col d-flex justify-content-end align-items-center">
                     <span style="font-weight:bold">Old Price:&nbsp;&nbsp;</span>  @Model.OriginalPrice Mesos
                 </div>
                 <div class="col d-flex align-items-center">
+                    <!-- Input for the new price -->
                     <input asp-for="Scroll.Price" placeholder="New Price" class="form-control" id="numberInput" oninput="convertNumber()" style="max-width:250px" />
                     <span asp-validation-for="Scroll.Price" class="text-danger"></span>
                 </div>
             </div>
+
+            <!-- Row to preview the formatted new price -->
             <div class="row py-4">
                 <div class="col d-flex justify-content-end align-items-center">
                     Preview:
@@ -41,13 +53,17 @@
                     <span id="convertedValue"></span>
                 </div>
             </div>
+
+            <!-- Row for submit and back buttons -->
             <div class="row py-4">
                 <div class="col d-flex justify-content-end align-items-center">
+                    <!-- Submit button to update the scroll price -->
                     <button type="submit" class="btn btn-primary">
                         Update
                     </button>
                 </div>
                 <div class="col d-flex align-items-center">
+                    <!-- Button to navigate back to the previous page -->
                     <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
                 </div>
             </div>
@@ -56,7 +72,10 @@
 
 
     @section Scripts {
+        <!-- JavaScript for converting the input number to a formatted value -->
         <script src="~/js/conversion.js"></script>
+
+        <!-- JavaScript function to navigate back to the previous page -->
         <script>
             function goBack() {
                 window.history.back();
