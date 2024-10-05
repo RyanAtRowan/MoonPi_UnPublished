@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Portfolio.Data;
 using System.Configuration;
 using Microsoft.AspNetCore.Identity;
+using Portfolio.Pages.HookOrBeHooked;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
 
+// Add SignalR service
+builder.Services.AddSignalR();
 
 
 var app = builder.Build();
@@ -46,6 +49,9 @@ app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Map the SignalR Hub endpoint
+app.MapHub<GameHub>("/gameHub");
 
 
 app.Run();

@@ -12,6 +12,19 @@
 
   <ItemGroup>
     <None Include="wwwroot\Assets\Resume_Thumbnail.jpeg" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\GameScene\Background\GameBackground.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\GameScene\Fish\Fish.gif" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\GameScene\Hook\Hook.gif" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\GameScene\Hook\Hook.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\GameScene\Trash\Trash.gif" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\GameScene\Trash\Trash.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\TitleScene\Buttons\ButtonSelected.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\TitleScene\Buttons\FishButton.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\TitleScene\Buttons\FishButtonDisabled.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\TitleScene\Buttons\HookButton.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\TitleScene\Buttons\HookButtonDisabled.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\VictoryScene\FishWins.png" />
+    <None Include="wwwroot\Assets\HookOrBeHooked\VictoryScene\HookWins.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +33,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.38" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.Json" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
