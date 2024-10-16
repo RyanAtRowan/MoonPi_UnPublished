@@ -3,8 +3,17 @@ using Portfolio.Data;
 using System.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Portfolio.Pages.HookOrBeHooked;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Configure Kestrel with settings from appsettings.json or appsettings.Development.json
+builder.WebHost.ConfigureKestrel((context, options) =>
+{
+    var kestrelSection = context.Configuration.GetSection("Kestrel");
+    options.Configure(kestrelSection);
+});
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -18,6 +27,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 );
 
 builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("https://moon-pi.net", "https://localhost")  // Add localhost for development
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();  // Allow SignalR to use credentials
+    });
+});
 
 // Add SignalR service
 builder.Services.AddSignalR();
@@ -53,9 +73,4 @@ app.MapControllerRoute(
 // Map the SignalR Hub endpoint
 app.MapHub<GameHub>("/gameHub");
 
-
 app.Run();
-
-
-
-

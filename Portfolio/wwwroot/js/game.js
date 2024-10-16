@@ -6,6 +6,9 @@
         this.hook = null;
         this.trashGroup = null;
         this.spectator = false;  // Default spectator role
+
+        this.fishLastPosition = { x: 0, y: 0 };  // To track the last known position of the Fish
+        this.hookLastPosition = { x: 0, y: 0 };  // To track the last known position of the Hook
     }
 
     preload() {
@@ -14,29 +17,46 @@
 
         // Preload Fish and Hook sprite sheets (4 frames each)
         this.load.spritesheet('Fish', '/Assets/HookOrBeHooked/GameScene/Fish/Fish.png', {
-            frameWidth: 96,  // Adjust this based on the size of one frame
-            frameHeight: 90, // Adjust this based on the size of one frame
-            endFrame: 3  // 4 frames, indexed 0 to 3
+            frameWidth: 96,
+            frameHeight: 90,
+            endFrame: 3
         });
 
         this.load.spritesheet('Hook', '/Assets/HookOrBeHooked/GameScene/Hook/Hook.png', {
-            frameWidth: 96,  // Adjust this based on the size of one frame
-            frameHeight: 90, // Adjust this based on the size of one frame
-            endFrame: 3  // 4 frames, indexed 0 to 3
+            frameWidth: 96,
+            frameHeight: 90,
+            endFrame: 3
         });
 
         // Preload the Trash sprite sheet (5 frames)
         this.load.spritesheet('Trash', '/Assets/HookOrBeHooked/GameScene/Trash/Trash.png', {
-            frameWidth: 96,  // Adjust based on size of a single frame
-            frameHeight: 90, // Adjust based on size of a single frame
-            endFrame: 4  // 5 frames, indexed 0 to 4
+            frameWidth: 96,
+            frameHeight: 90,
+            endFrame: 4
         });
     }
-
 
     create() {
         // Retrieve role from localStorage
         this.playerRole = localStorage.getItem('role') || 'spectator';
+
+        // Setup SignalR connection
+        this.connection = new signalR.HubConnectionBuilder()
+            .withUrl("/gameHub")
+            .build();
+
+        this.connection.start().then(() => {
+            console.log("Connected to SignalR");
+
+            // Listen for position updates from other players
+            this.connection.on("ReceivePosition", (role, x, y) => {
+                if (role === 'fish') {
+                    this.fish.setPosition(x, y);  // Update Fish position
+                } else if (role === 'hook') {
+                    this.hook.setPosition(x, y);  // Update Hook position
+                }
+            });
+        });
 
         // Add the background image
         this.add.image(400, 400, 'GameBackground').setOrigin(0.5, 0.5);
@@ -60,13 +80,20 @@
         this.anims.create({
             key: 'trashMove',
             frames: this.anims.generateFrameNumbers('Trash', { start: 0, end: 4 }),
-            frameRate: 5,  // Adjust frame rate as needed for the trash animation
+            frameRate: 5,
             repeat: -1
         });
 
         // Create Fish and Hook sprites with animations
         this.fish = this.physics.add.sprite(100, 400, 'Fish').setScale(1);
         this.hook = this.physics.add.sprite(700, 400, 'Hook').setScale(1);
+
+        // Set world bounds to constrain the Fish and Hook within the canvas (800x800)
+        this.physics.world.setBounds(0, 0, 800, 800);
+
+        // Constrain Fish and Hook to the world bounds
+        this.fish.setCollideWorldBounds(true);
+        this.hook.setCollideWorldBounds(true);
 
         // Play the animations
         this.fish.play('swim');
@@ -75,39 +102,55 @@
         // Create the Trash group
         this.trashGroup = this.physics.add.group();
 
-        // Setup input handling for both Fish and Hook players
-        this.input.on('pointermove', this.handlePointerMove, this);
-
-        // Setup spectator role handling for trash spawning
-        if (this.spectator) {
-            this.input.on('pointerdown', this.spawnTrash, this);
-        }
+        // Setup input handling for both Fish and Hook 
+        this.input.on('pointermove', this.setTargetPosition, this);
 
         // Enable collision detection between Hook, Fish, and Trash
         this.physics.add.overlap(this.hook, this.fish, this.hookWins, null, this);
         this.physics.add.overlap(this.hook, this.trashGroup, this.fishWins, null, this);
     }
 
-
-    // Handle player movement
-    handlePointerMove(pointer) {
+    // Store the target position on click
+    setTargetPosition(pointer) {
         if (this.playerRole === 'fish') {
-            // Only move the Fish if the player is controlling it
-            this.moveToTarget(this.fish, pointer.x, pointer.y, 220); // speed 220
+            this.fishTarget = { x: pointer.x, y: pointer.y };
         } else if (this.playerRole === 'hook') {
-            // Only move the Hook if the player is controlling it
-            this.moveToTarget(this.hook, pointer.x, pointer.y, 150); // speed 150
+            this.hookTarget = { x: pointer.x, y: pointer.y };
         }
     }
 
-    // New method to move the object and stop when it reaches the target
-    moveToTarget(object, targetX, targetY, speed) {
-        const distance = Phaser.Math.Distance.Between(object.x, object.y, targetX, targetY);
+    // Update method runs every frame
+    update() {
+        if (this.playerRole === 'fish') {
+            this.moveToTarget(this.fish, this.fishTarget, 200);
+            this.broadcastPosition('fish', this.fish);  // Continuously send the Fish position
+        } else if (this.playerRole === 'hook') {
+            this.moveToTarget(this.hook, this.hookTarget, 170);
+            this.broadcastPosition('hook', this.hook);  // Continuously send the Hook position
+        }
+    }
 
-        if (distance > 85) {  // Small threshold to prevent jitter
-            this.physics.moveTo(object, targetX, targetY, speed); 
+    // Move the object and stop when it reaches the target
+    moveToTarget(object, target, speed) {
+        if (!target) return;  // If target hasn't been set yet, skip
+
+        const distance = Phaser.Math.Distance.Between(object.x, object.y, target.x, target.y);
+        if (distance > 10) {
+            this.physics.moveToObject(object, target, speed);
         } else {
-            object.body.setVelocity(0, 0);  // Stop moving when the target is reached
+            object.body.setVelocity(0, 0);  // Stop moving when close enough
+        }
+    }
+
+    // Broadcast the position of the object (Fish or Hook) to the server
+    broadcastPosition(role, object) {
+        // Only send the position if it has changed since the last frame
+        if (role === 'fish' && (object.x !== this.fishLastPosition.x || object.y !== this.fishLastPosition.y)) {
+            this.connection.invoke('UpdatePosition', 'fish', object.x, object.y);
+            this.fishLastPosition = { x: object.x, y: object.y };  // Update last position
+        } else if (role === 'hook' && (object.x !== this.hookLastPosition.x || object.y !== this.hookLastPosition.y)) {
+            this.connection.invoke('UpdatePosition', 'hook', object.x, object.y);
+            this.hookLastPosition = { x: object.x, y: object.y };  // Update last position
         }
     }
 
@@ -119,22 +162,12 @@
 
     // Collision detection: Hook catches Fish
     hookWins() {
-        this.scene.start('HookVictoryScene');  // Transition to HookVictoryScene
+        this.scene.start('TitleScene');  // Transition to HookVictoryScene
     }
 
     // Collision detection: Hook hits Trash
     fishWins() {
-        this.scene.start('FishVictoryScene');  // Transition to FishVictoryScene
-    }
-
-    isFishPlayer() {
-        // Logic to check if the current player is the Fish
-        return true;  // Placeholder, this should check the player's role
-    }
-
-    isHookPlayer() {
-        // Logic to check if the current player is the Hook
-        return true;  // Placeholder, this should check the player's role
+        this.scene.start('TitleScene');  // Transition to FishVictoryScene
     }
 }
 
