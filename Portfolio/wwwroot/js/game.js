@@ -164,6 +164,10 @@ class GameScene extends Phaser.Scene {
             console.log("Clearing local storage...");
             localStorage.removeItem('role');  // Clear the stored role
         });
+
+        if (this.playerRole === 'spectator') {
+            this.input.on('pointerdown', this.spawnTrash, this)
+        }
     }
 
     // Store the target position on click
@@ -227,8 +231,14 @@ class GameScene extends Phaser.Scene {
 
     // Spectator ability to throw trash
     spawnTrash(pointer) {
+        console.log("Creating Trash...");
+
+        let size = Phaser.Math.Between(1, 5);
+
+        size = 1 + (size / 10);
+
         // Create trash at the given Y position
-        let trash = this.trashGroup.create(0, pointer.y, 'Trash').setScale(1);
+        let trash = this.trashGroup.create(0, pointer.y, 'Trash').setScale(size);
 
         // Generate a random speed within a range
         let speed = Phaser.Math.Between(70, 300);
@@ -236,9 +246,17 @@ class GameScene extends Phaser.Scene {
         // Move the trash from left to right at the random speed
         trash.setVelocityX(speed);
 
-        // Once the trash leaves the screen, destroy it
-        trash.setOutOfBoundsKill(true);
-        trash.setCollideWorldBounds(false);
+        trash.anims.play('trashMove', true);
+    }
+
+    update() {
+        // Call this for every object in the trash group
+        this.trashGroup.children.each(function (trash) {
+            // If the trash moves off the right side of the screen, destroy it
+            if (trash.x > 800) {  // Assuming the canvas width is 800
+                trash.destroy();  // Destroy the trash once it moves off-screen
+            }
+        }, this);
     }
 }
 
