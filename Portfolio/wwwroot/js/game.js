@@ -1,4 +1,26 @@
-﻿class GameScene extends Phaser.Scene {
+﻿class HookWinsScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'HookWinsScene' });
+    }
+
+    preload() {
+        // Preload the HookWins background image
+        this.load.image('HookWinsBackground', '/Assets/HookOrBeHooked/VictoryScene/HookWins.png');
+    }
+
+    create() {
+        // Add the HookWins background image to the scene
+        this.add.image(400, 400, 'HookWinsBackground').setOrigin(0.5, 0.5);
+
+        // Set a timed event to transition back to the TitleScene after 5 seconds
+        this.time.delayedCall(5000, () => {
+            this.scene.start('TitleScene');  // Transition back to the TitleScene
+        });
+    }
+}
+
+
+class GameScene extends Phaser.Scene {
     constructor() {
         super({ key: 'GameScene' });
 
@@ -37,6 +59,7 @@
     }
 
     create() {
+        console.log("Creating Scene: GameScene...");
         // Retrieve role from localStorage
         this.playerRole = localStorage.getItem('role') || 'spectator';
 
@@ -56,7 +79,19 @@
                     this.hook.setPosition(x, y);  // Update Hook position
                 }
             });
+
+            // Listen for spectator role updates
+            this.connection.on("UpdateRoles", (fishRole, hookRole, spectators) => {
+                const myConnectionId = this.connection.connectionId;
+                if (!spectators.includes(myConnectionId)) {
+                    // Spectators can throw trash
+                    this.input.on('pointerdown', this.spawnTrash, this);
+                }
+            });
         });
+
+        // Create the Trash group
+        this.trashGroup = this.physics.add.group();
 
         // Add the background image
         this.add.image(400, 400, 'GameBackground').setOrigin(0.5, 0.5);
@@ -92,10 +127,12 @@
         this.physics.world.setBounds(0, 0, 800, 800);
 
         // Constrain Fish and Hook to the world bounds
+        console.log("Setting up boundaries... ");
         this.fish.setCollideWorldBounds(true);
         this.hook.setCollideWorldBounds(true);
 
         // Play the animations
+        console.log("Setting up animations... ");
         this.fish.play('swim');
         this.hook.play('hookMove');
 
@@ -103,11 +140,30 @@
         this.trashGroup = this.physics.add.group();
 
         // Setup input handling for both Fish and Hook 
+        console.log("Setting up input handling... ");
         this.input.on('pointermove', this.setTargetPosition, this);
 
         // Enable collision detection between Hook, Fish, and Trash
+        console.log("Setting up collision... ");
         this.physics.add.overlap(this.hook, this.fish, this.hookWins, null, this);
         this.physics.add.overlap(this.hook, this.trashGroup, this.fishWins, null, this);
+
+        // Listen for Hook Wins Event
+        this.connection.on("HookWins", () => {
+            // Stop the SignalR connection before transitioning
+            this.connection.stop().then(() => {
+                this.playerRole = 'spectator';
+                localStorage.removeItem('role');  // Clear stored role after game end
+                this.scene.start('HookWinsScene');  // Go back to the title scene
+            }).catch((error) => {
+                console.error("Error stopping connection:", error);
+            });
+        });
+
+        this.connection.on("ClearLocalStorage", () => {
+            console.log("Clearing local storage...");
+            localStorage.removeItem('role');  // Clear the stored role
+        });
     }
 
     // Store the target position on click
@@ -133,7 +189,6 @@
     // Move the object and stop when it reaches the target
     moveToTarget(object, target, speed) {
         if (!target) return;  // If target hasn't been set yet, skip
-
         const distance = Phaser.Math.Distance.Between(object.x, object.y, target.x, target.y);
         if (distance > 10) {
             this.physics.moveToObject(object, target, speed);
@@ -154,20 +209,36 @@
         }
     }
 
-    // Spawn trash for spectators
-    spawnTrash(pointer) {
-        let trash = this.trashGroup.create(0, pointer.y, 'Trash').setScale(1);
-        trash.setVelocityX(150);  // Move trash to the right at a fixed speed
-    }
-
     // Collision detection: Hook catches Fish
     hookWins() {
-        this.scene.start('TitleScene');  // Transition to HookVictoryScene
+        console.log("Resetting Roles...");
+        this.connection.invoke("ResetRoles").then(() => {
+            // Transition to HookWinsScene
+            this.connection.invoke("HookWins");
+        });
     }
 
     // Collision detection: Hook hits Trash
     fishWins() {
-        this.scene.start('TitleScene');  // Transition to FishVictoryScene
+        //this.connection.invoke("ResetRoles").then(() => {
+        //    this.scene.start('FishWinsScene');
+        //});
+    }
+
+    // Spectator ability to throw trash
+    spawnTrash(pointer) {
+        // Create trash at the given Y position
+        let trash = this.trashGroup.create(0, pointer.y, 'Trash').setScale(1);
+
+        // Generate a random speed within a range
+        let speed = Phaser.Math.Between(70, 300);
+
+        // Move the trash from left to right at the random speed
+        trash.setVelocityX(speed);
+
+        // Once the trash leaves the screen, destroy it
+        trash.setOutOfBoundsKill(true);
+        trash.setCollideWorldBounds(false);
     }
 }
 
@@ -197,12 +268,20 @@ class TitleScene extends Phaser.Scene {
     }
 
     create() {
+
+        console.log("Creating Title Screen...");
+        // Retrieve role from localStorage
+        this.playerRole = 'spectator';
+        localStorage.removeItem('role');
+
+        //this.playerRole = localStorage.getItem('role') || 'spectator';
+
         this.connection = new signalR.HubConnectionBuilder()
             .withUrl("/gameHub")
             .build();
 
         this.connection.start().then(() => {
-            console.log("Connected to SignalR");
+            console.log("Connected to SignalR for a new game");
 
             // Request current roles when the connection is established
             this.connection.invoke('SendCurrentRoles', this.connection.connectionId);
@@ -230,6 +309,7 @@ class TitleScene extends Phaser.Scene {
 
         // Listen for game start
         this.connection.on("StartGame", () => {
+            console.log("Initializing GameScene...");
             this.scene.start('GameScene'); // Transition to the game scene
         });
     }
@@ -250,7 +330,7 @@ class TitleScene extends Phaser.Scene {
             });
     }
 
-    updateRoleButtons(fishRole, hookRole) {
+    updateRoleButtons(fishRole, hookRole, spectators) {
         const myConnectionId = this.connection.connectionId;
 
         // Fish button logic
@@ -273,10 +353,17 @@ class TitleScene extends Phaser.Scene {
             this.hookButton.setTexture('HookButtonDisabled').disableInteractive();  // Taken by someone else
         }
 
-        // If both roles are assigned, start the countdown
-        if (fishRole !== null && hookRole !== null) {
-            this.connection.invoke('StartGameCountdown');
+        // Check if player is a spectator
+        if (fishRole !== null && hookRole !== null && !spectators.includes(myConnectionId)) {
+            localStorage.setItem('role', 'spectator');  // Store role as spectator
         }
+
+        //console.log("FishRole:", fishRole, "HookRole:", hookRole);
+        // If both roles are assigned, start the countdown
+        //if (fishRole !== null && hookRole !== null) {
+        //    console.log("Calling Countdown Method...");
+        //    this.connection.invoke('StartGameCountdown');
+        //}
     }
 }
 
@@ -318,7 +405,7 @@ var config = {
             debug: false  // Turn off physics debug, set to true for debugging
         }
     },
-    scene: [TitleScene, GameScene]  // Add scenes here
+    scene: [TitleScene, GameScene, HookWinsScene]  // Add scenes here
 
 };
 
