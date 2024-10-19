@@ -1,4 +1,25 @@
-﻿class HookWinsScene extends Phaser.Scene {
+﻿class FishWinsScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'FishWinsScene' });
+    }
+
+    preload() {
+        // Preload the HookWins background image
+        this.load.image('FishWinsBackground', '/Assets/HookOrBeHooked/VictoryScene/FishWins.png');
+    }
+
+    create() {
+        // Add the HookWins background image to the scene
+        this.add.image(400, 400, 'FishWinsBackground').setOrigin(0.5, 0.5);
+
+        // Set a timed event to transition back to the TitleScene after 5 seconds
+        this.time.delayedCall(5000, () => {
+            this.scene.start('TitleScene');  // Transition back to the TitleScene
+        });
+    }
+}
+
+class HookWinsScene extends Phaser.Scene {
     constructor() {
         super({ key: 'HookWinsScene' });
     }
@@ -160,13 +181,29 @@ class GameScene extends Phaser.Scene {
             });
         });
 
+        // Listen for Fish Wins Event
+        this.connection.on("FishWins", () => {
+            // Stop the SignalR connection before transitioning
+            this.connection.stop().then(() => {
+                this.playerRole = 'spectator';
+                localStorage.removeItem('role');  // Clear stored role after game end
+                this.scene.start('FishWinsScene');  // Go back to the title scene
+            }).catch((error) => {
+                console.error("Error stopping connection:", error);
+            });
+        });
+
         this.connection.on("ClearLocalStorage", () => {
             console.log("Clearing local storage...");
             localStorage.removeItem('role');  // Clear the stored role
         });
 
+        this.connection.on("spawnTrashEvent", (size, speed, y) => {
+            this.spawnTrash(size, speed, y);
+        });
+
         if (this.playerRole === 'spectator') {
-            this.input.on('pointerdown', this.spawnTrash, this)
+            this.input.on('pointerdown', this.generateTrashData, this)
         }
     }
 
@@ -176,17 +213,6 @@ class GameScene extends Phaser.Scene {
             this.fishTarget = { x: pointer.x, y: pointer.y };
         } else if (this.playerRole === 'hook') {
             this.hookTarget = { x: pointer.x, y: pointer.y };
-        }
-    }
-
-    // Update method runs every frame
-    update() {
-        if (this.playerRole === 'fish') {
-            this.moveToTarget(this.fish, this.fishTarget, 200);
-            this.broadcastPosition('fish', this.fish);  // Continuously send the Fish position
-        } else if (this.playerRole === 'hook') {
-            this.moveToTarget(this.hook, this.hookTarget, 170);
-            this.broadcastPosition('hook', this.hook);  // Continuously send the Hook position
         }
     }
 
@@ -224,24 +250,32 @@ class GameScene extends Phaser.Scene {
 
     // Collision detection: Hook hits Trash
     fishWins() {
-        //this.connection.invoke("ResetRoles").then(() => {
-        //    this.scene.start('FishWinsScene');
-        //});
+        console.log("Resetting Roles...");
+        this.connection.invoke("ResetRoles").then(() => {
+            // Transition to HookWinsScene
+            this.connection.invoke("FishWins");
+        });
     }
 
-    // Spectator ability to throw trash
-    spawnTrash(pointer) {
-        console.log("Creating Trash...");
+    generateTrashData(pointer) {
+        let y = pointer.y
 
+        // Generate a random size between 1 and 5 (to be within 1.0 and 1.5)
         let size = Phaser.Math.Between(1, 5);
-
-        size = 1 + (size / 10);
-
-        // Create trash at the given Y position
-        let trash = this.trashGroup.create(0, pointer.y, 'Trash').setScale(size);
 
         // Generate a random speed within a range
         let speed = Phaser.Math.Between(70, 300);
+
+        this.connection.invoke('CreateTrash', size, speed, y)
+    }
+
+    // Spectator ability to throw trash
+    spawnTrash(size, speed, y) {
+        // Adjusts size to be a number between 1 and 1.5
+        size = 1 + (size / 10);
+
+        // Create trash at the given Y position
+        let trash = this.trashGroup.create(0, y, 'Trash').setScale(size);
 
         // Move the trash from left to right at the random speed
         trash.setVelocityX(speed);
@@ -249,6 +283,7 @@ class GameScene extends Phaser.Scene {
         trash.anims.play('trashMove', true);
     }
 
+    // Update method runs every frame
     update() {
         // Call this for every object in the trash group
         this.trashGroup.children.each(function (trash) {
@@ -257,6 +292,14 @@ class GameScene extends Phaser.Scene {
                 trash.destroy();  // Destroy the trash once it moves off-screen
             }
         }, this);
+
+        if (this.playerRole === 'fish') {
+            this.moveToTarget(this.fish, this.fishTarget, 200);
+            this.broadcastPosition('fish', this.fish);  // Continuously send the Fish position
+        } else if (this.playerRole === 'hook') {
+            this.moveToTarget(this.hook, this.hookTarget, 170);
+            this.broadcastPosition('hook', this.hook);  // Continuously send the Hook position
+        }
     }
 }
 
@@ -423,7 +466,7 @@ var config = {
             debug: false  // Turn off physics debug, set to true for debugging
         }
     },
-    scene: [TitleScene, GameScene, HookWinsScene]  // Add scenes here
+    scene: [TitleScene, GameScene, HookWinsScene, FishWinsScene]  // Add scenes here
 
 };
 

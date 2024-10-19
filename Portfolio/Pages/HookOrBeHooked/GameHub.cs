@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System.Drawing;
 
 namespace Portfolio.Pages.HookOrBeHooked
 {
@@ -10,41 +11,41 @@ namespace Portfolio.Pages.HookOrBeHooked
 
 
         // Test Method for Trash
-        public async Task AssignRole(string role, string connectionId)
-        {
-            spectators.Add(connectionId);
-
-            await Clients.All.SendAsync("UpdateRoles", fishRole, hookRole, spectators);
-
-            await StartGameCountdown();
-        }
-
         //public async Task AssignRole(string role, string connectionId)
         //{
-        //    if (role == "fish" && fishRole == null) /*&& connectionId != hookRole*/
-        //    {
-        //        Console.WriteLine("Fish Role Assigned..");
-        //        fishRole = connectionId;
-        //    }
-        //    else if (role == "hook" && hookRole == null) /*&& connectionId != fishRole*/
-        //    {
-        //        hookRole = connectionId;
-        //    }
-        //    else
-        //    {
-        //        spectators.Add(connectionId);
-        //    }
+        //    spectators.Add(connectionId);
 
-        //    // Send the updated roles to all clients
         //    await Clients.All.SendAsync("UpdateRoles", fishRole, hookRole, spectators);
 
-        //    // Check if both roles are assigned and start the game countdown
-        //    if (fishRole != null && hookRole != null)
-        //    {
-        //        Console.WriteLine("Both roles assigned. Starting countdown...");
-        //        await StartGameCountdown(); 
-        //    }
+        //    await StartGameCountdown();
         //}
+
+        public async Task AssignRole(string role, string connectionId)
+        {
+            if (role == "fish" && fishRole == null && connectionId != hookRole) 
+            {
+                Console.WriteLine("Fish Role Assigned..");
+                fishRole = connectionId;
+            }
+            else if (role == "hook" && hookRole == null && connectionId != fishRole) 
+            {
+                hookRole = connectionId;
+            }
+            else
+            {
+                spectators.Add(connectionId);
+            }
+
+            // Send the updated roles to all clients
+            await Clients.All.SendAsync("UpdateRoles", fishRole, hookRole, spectators);
+
+            // Check if both roles are assigned and start the game countdown
+            if (fishRole != null && hookRole != null)
+            {
+                Console.WriteLine("Both roles assigned. Starting countdown...");
+                await StartGameCountdown();
+            }
+        }
 
         // GAME MANAGEMENT
 
@@ -61,6 +62,11 @@ namespace Portfolio.Pages.HookOrBeHooked
             await Clients.All.SendAsync("HookWins");
         }
 
+        public async Task FishWins()
+        {
+            await Clients.All.SendAsync("FishWins");
+        }
+
         public async Task SendCurrentRoles(string connectionId)
         {
             await Clients.Client(connectionId).SendAsync("UpdateRoles", fishRole, hookRole, spectators);
@@ -69,6 +75,11 @@ namespace Portfolio.Pages.HookOrBeHooked
         public async Task UpdatePosition(string role, float x, float y)
         {
             await Clients.Others.SendAsync("ReceivePosition", role, x, y);
+        }
+
+        public async Task CreateTrash(int size, int speed,float y)
+        {
+            await Clients.All.SendAsync("spawnTrashEvent", size, speed, y);
         }
 
         public override async Task OnConnectedAsync()
