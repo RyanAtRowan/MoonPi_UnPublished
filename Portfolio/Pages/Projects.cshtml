@@ -15,33 +15,48 @@
         <!-- Project cards, using Bootstrap grid layout -->
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
-            <!-- Guide Maker Project (Work in Progress) -->
+            <!-- Hook or be Hooked -->
             <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
                     <!-- Tech stack icons -->
-                    <i class="devicon-dotnetcore-plain"></i>
-                    <i class="devicon-azuresqldatabase-plain"></i>
+                    <i class="devicon-canva-original px-1"></i>
+                    <i class="devicon-dotnetcore-plain px-1"></i>
+                    <i class="devicon-javascript-plain px-1"></i>
+                    <img class="px-1" src="https://cdn.phaser.io/images/logo/phaser-pixel-medium-shaded.png" />
                 </div>
-                <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Guide Maker <br /><i>(Work in Progress)</i></h3>
+                <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Hook or be Hooked</h3>
                 <!-- Project Description -->
                 <p>
-                    This is a website that will help users create guides using images, texts, and sections.
+                    A multiplayer game where you can play as either a fish or a hook. Join as a player or spectator and see who comes out on top!
                     <br />
                     <br />
-                    Intended Features:
+                    Features:
                     <ul class="text-start">
                         <li>
-                            The Guide: neatly display guides using both images and expandable text
+                            Player Roles: Play as a <b>Fish</b>, dodging the hook, or as the <b>Hook</b>, trying to catch the fish.
+                            If the player roles are already taken, you'll be assigned the <b>Spectator</b> role.
                         </li>
                         <li>
-                            User Management: Allow users to login. Once inside, they can add, remove, or update their guides. This includes the ability to add and remove images.
+                            Spectator Mode: As a spectator, you can throw trash into the game by tapping or clicking the screen to make things more
+                            difficult for the hook.
+                        </li>
+                        <li>
+                            Real-time Multiplayer: All players and spectators are connected through SignalR, which ensures all actions are updated in
+                            real-time.
                         </li>
                     </ul>
                 </p>
-                <!-- Project Links (Demo, GitHub, Documentation) -->             
-                @*<a asp-page="GuideMaker/Index" class="icon-link"> Demo <svg class="bi"><use xlink:href="#chevron-right"></use></svg></a>*@
-                <a href="https://drive.google.com/file/d/18mHRi8P5zpaDk1mt1CmFBtQe_i10Ley4/view?usp=sharing" class="icon-link">
+                <!-- Project Links (Demo, GitHub, Documentation) -->
+                <a asp-page="HookOrBeHooked/Index" class="icon-link"> 
+                    Demo 
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+                <a href="" class="icon-link">
                     Design Document
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+                <a href="https://github.com/RyanAtRowan/MoonPi_UnPublished" class="icon-link">
+                    GitHub
                     <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                 </a>
             </div>
@@ -50,10 +65,10 @@
             <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
                     <!-- Tech stack icons -->
-                    <i class="devicon-dotnetcore-plain"></i>
-                    <i class="devicon-azuresqldatabase-plain"></i>
+                    <i class="devicon-dotnetcore-plain px-1"></i>
                     <i class="devicon-javascript-plain px-1"></i>
-                    <i class="devicon-jquery-plain-wordmark"></i>
+                    <i class="devicon-mariadb-original-wordmark px-1"></i>
+                    <i class="devicon-jquery-plain-wordmark px-1"></i>
 
 
                 </div>
@@ -92,9 +107,9 @@
             <div class="pb-4 feature col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-body fs-2 mb-3">
                     <!-- Tech stack icons -->
-                    <i class="devicon-dotnetcore-plain"></i>
+                    <i class="devicon-dotnetcore-plain px-1"></i>
                     <i class="devicon-javascript-plain px-1"></i>
-                    <i class="devicon-raspberrypi-plain"></i>
+                    <i class="devicon-raspberrypi-plain px-1"></i>
                 </div>
                 <h3 class="fs-2 text-body-emphasis" data-bs-theme="dark">Portfolio</h3>
                 <!-- Project Description -->
@@ -106,7 +121,7 @@
                     <ul class="text-start">
                         <li>
                             Bootstrap: many elements of this page are customized bootstrap elements and properties.
-                            </li>
+                        </li>
                         <li>
                             Raspberry Pi Deployment: the challenge of deploying a website is particularly satisfying problem to solve.
                             For many, Azure is the first service that comes to mind when trying to host a project. Azure has many
