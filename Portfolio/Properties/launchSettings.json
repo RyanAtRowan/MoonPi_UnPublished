@@ -32,7 +32,7 @@
       "applicationUrl": "http://localhost:5270",
       "environmentVariables": {
         // "Production" or "Development"
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "https": {
@@ -42,7 +42,7 @@
       "applicationUrl": "https://localhost:7099;http://localhost:5270",
       "environmentVariables": {
         // "Production" or "Development"
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "IIS Express": {
@@ -50,7 +50,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         // "Production" or "Development"
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }

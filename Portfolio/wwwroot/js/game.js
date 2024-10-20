@@ -1,4 +1,7 @@
-﻿// ======================================================
+﻿let audioEnabled = false; // Global flag to track if audio is enabled
+let currentMusic;  // Global variable for music so it can be stopped when changing scenes
+
+// ======================================================
 // TitleScene: Handles the title screen where players select roles and start the game.
 // ======================================================
 
@@ -24,6 +27,11 @@ class TitleScene extends Phaser.Scene {
         this.load.image('HookButton', '/Assets/HookOrBeHooked/TitleScene/Buttons/HookButton.png');
         this.load.image('HookButtonDisabled', '/Assets/HookOrBeHooked/TitleScene/Buttons/HookButtonDisabled.png');
         this.load.image('ButtonSelected', '/Assets/HookOrBeHooked/TitleScene/Buttons/ButtonSelected.png');
+
+        // Preload sound related files
+        this.load.audio('titleMusic', '/Assets/HookOrBeHooked/TitleScene/Sounds/waves_and_seagulls.wav');
+        this.load.image('soundButton', '/Assets/HookOrBeHooked/TitleScene/Buttons/speaker.png');
+        this.load.audio('buttonClick', '/Assets/HookOrBeHooked/TitleScene/Sounds/button_click.mp3');
     }
 
     // ======================================================
@@ -62,6 +70,26 @@ class TitleScene extends Phaser.Scene {
         // Create the role selection buttons (Fish and Hook).
         this.createRoleButtons();
 
+        // Add Sound Button
+        if (!audioEnabled) {
+            let soundButton = this.add.image(700, 100, 'soundButton').setInteractive();
+
+            soundButton.on('pointerdown', () => {
+                if (!audioEnabled) {
+                    audioEnabled = true; // Set the flag to true
+                    this.playMusic('titleMusic'); // Play music for title scene
+
+                    soundButton.setVisible(false);
+                }
+            });
+        }
+        else
+        {
+            this.playMusic('titleMusic');
+        }
+
+
+
         // ======================================================
         // SignalR Event Listeners for Role Updates and Game Start
         // ======================================================
@@ -83,6 +111,21 @@ class TitleScene extends Phaser.Scene {
         });
     }
 
+    // Play music
+    playMusic(key) {
+        if (audioEnabled) {
+            // Stop any current music
+            if (currentMusic) {
+                currentMusic.stop();
+            }
+
+            // Play new music for the scene
+            currentMusic = this.sound.add(key, { loop: true });
+            currentMusic.play();
+        }
+    }
+
+
     // ======================================================
     // Create Role Buttons: Creates and initializes Fish and Hook buttons.
     // ======================================================
@@ -91,6 +134,7 @@ class TitleScene extends Phaser.Scene {
         this.fishButton = this.add.image(200, 700, 'FishButton')
             .setInteractive()  // Make the button interactive (clickable)
             .on('pointerdown', () => {  // When the button is clicked, assign the Fish role
+                this.sound.play('buttonClick');
                 this.connection.invoke('AssignRole', 'fish', this.connection.connectionId);
             });
 
@@ -98,6 +142,7 @@ class TitleScene extends Phaser.Scene {
         this.hookButton = this.add.image(600, 700, 'HookButton')
             .setInteractive()  // Make the button interactive (clickable)
             .on('pointerdown', () => {  // When the button is clicked, assign the Hook role
+                this.sound.play('buttonClick');
                 this.connection.invoke('AssignRole', 'hook', this.connection.connectionId);
             });
     }
@@ -167,7 +212,12 @@ class GameScene extends Phaser.Scene {
 
         // Initialize timer text
         this.timerText = null;
-        this.timeLeft = 60;
+        this.timeLeft = 30;
+
+        this.trashTimer = 0;  // Timer for generating trash
+        this.trashInterval = 2000;  // Time interval between trash generation (in milliseconds)
+
+
     }
 
     // ======================================================
@@ -176,6 +226,9 @@ class GameScene extends Phaser.Scene {
     preload() {
         // Preload background image
         this.load.image('GameBackground', '/Assets/HookOrBeHooked/GameScene/Background/GameBackground.png');
+
+        // Preload Trash sound
+        this.load.audio('trashSplat', '/Assets/HookOrBeHooked/GameScene/Sounds/splat.wav');
 
         // Preload Fish and Hook sprite sheets (4-frame animations)
         this.load.spritesheet('Fish', '/Assets/HookOrBeHooked/GameScene/Fish/Fish.png', {
@@ -330,7 +383,7 @@ class GameScene extends Phaser.Scene {
         }
 
         // Set up timer text
-        this.timerText = this.add.text(400, 50, 'Time: 60', {
+        this.timerText = this.add.text(400, 50, 'Time: 30', {
             fontSize: '32px',
             fill: '#ffffff'
         }).setOrigin(0.5, 0.5);
@@ -356,7 +409,7 @@ class GameScene extends Phaser.Scene {
 
         // If the timer hits 0, check the roles and declare the fish winner
         if (this.timeLeft <= 0) {
-            this.timeLeft = 60;
+            this.timeLeft = 30;
             this.connection.invoke("ResetRoles").then(() => {
                 this.connection.invoke("FishWins");
             });
@@ -402,6 +455,7 @@ class GameScene extends Phaser.Scene {
 
     // Hook Wins: Handle when Hook catches Fish
     hookWins() {
+        this.timeLeft = 30;
         this.connection.invoke("ResetRoles").then(() => {
             this.connection.invoke("HookWins");
         });
@@ -409,6 +463,7 @@ class GameScene extends Phaser.Scene {
 
     // Fish Wins: Handle when Hook hits Trash (Fish wins)
     fishWins() {
+        this.timeLeft = 30;
         this.connection.invoke("ResetRoles").then(() => {
             this.connection.invoke("FishWins");
         });
@@ -429,12 +484,13 @@ class GameScene extends Phaser.Scene {
         let trash = this.trashGroup.create(0, y, 'Trash').setScale(size);  // Create trash at the given Y position
         trash.setVelocityX(speed);  // Move the trash from left to right at the random speed
         trash.anims.play('trashMove', true);  // Play trash animation
+        this.sound.play('trashSplat');
     }
 
     // ======================================================
     // Update Method: Runs every frame
     // ======================================================
-    update() {
+    update(time, delta) {
         // Check if trash has moved off-screen and destroy it
         this.trashGroup.children.each(trash => {
             if (trash.x > 800) {  // If trash moves beyond the canvas width (800)
@@ -442,9 +498,19 @@ class GameScene extends Phaser.Scene {
             }
         });
 
+        // Increment the trash timer by delta time (time passed since last frame)
+        this.trashTimer += delta;
+
+        // If the timer exceeds the interval, generate trash and reset the timer
+        if (this.trashTimer >= this.trashInterval) {
+            // Call generateTrashData to generate trash every second
+            this.generateTrashData({ y: Phaser.Math.Between(100, 700) });  // Random Y value for demo
+            this.trashTimer = 0;  // Reset the timer
+        }
+
         // Continuously move Fish or Hook towards their target positions and broadcast updates
         if (this.playerRole === 'fish') {
-            this.moveToTarget(this.fish, this.fishTarget, 200);  // Move Fish
+            this.moveToTarget(this.fish, this.fishTarget, 230);  // Move Fish
             this.broadcastPosition('fish', this.fish);  // Send Fish position
         } else if (this.playerRole === 'hook') {
             this.moveToTarget(this.hook, this.hookTarget, 170);  // Move Hook
@@ -468,6 +534,9 @@ class HowToPlayScene extends Phaser.Scene {
     preload() {
         // Preload the background image for instructions
         this.load.image('HowToPlayBackground', '/Assets/HookOrBeHooked/HowToPlay/HowToPlay.png');
+
+        // Preload gameplay music
+        this.load.audio('gameMusic', '/Assets/HookOrBeHooked/HowToPlay/Sounds/water-game-music.wav')
     }
 
     // ======================================================
@@ -477,11 +546,29 @@ class HowToPlayScene extends Phaser.Scene {
         // Add the HowToPlay background image to the center of the scene
         this.add.image(400, 400, 'HowToPlayBackground').setOrigin(0.5, 0.5);
 
+        if (audioEnabled) {
+            this.playMusic('gameMusic');  // Play the game music
+        }
+
         // Set a timed event to automatically transition to the GameScene after 5 seconds
         this.time.delayedCall(5000, () => {
             // Move to GameScene
             this.scene.start('GameScene');
         });
+    }
+
+    // Play music
+    playMusic(key) {
+        if (audioEnabled) {
+            // Stop any current music
+            if (currentMusic) {
+                currentMusic.stop();
+            }
+
+            // Play new music for the scene
+            currentMusic = this.sound.add(key, { loop: true, volume: .5 });
+            currentMusic.play();
+        }
     }
 }
 
@@ -501,6 +588,9 @@ class FishWinsScene extends Phaser.Scene {
     preload() {
         // Preload the background image for Fish's victory
         this.load.image('FishWinsBackground', '/Assets/HookOrBeHooked/VictoryScene/FishWins.png');
+
+        // PreLoad the Victory Music
+        this.load.audio('fishVictory', '/Assets/HookOrBeHooked/VictoryScene/Sounds/winner.wav');
     }
 
     // ======================================================
@@ -510,10 +600,27 @@ class FishWinsScene extends Phaser.Scene {
         // Add the FishWins background image to the center of the scene
         this.add.image(400, 400, 'FishWinsBackground').setOrigin(0.5, 0.5);
 
+        if (audioEnabled) {
+            this.playMusic('fishVictory');  // Play the game music
+        }
+
         // Set a timed event to automatically transition back to the TitleScene after 5 seconds
         this.time.delayedCall(5000, () => {
             this.scene.start('TitleScene');  // Transition back to the TitleScene
         });
+    }
+
+    playMusic(key) {
+        if (audioEnabled) {
+            // Stop any current music
+            if (currentMusic) {
+                currentMusic.stop();
+            }
+
+            // Play new music for the scene
+            currentMusic = this.sound.add(key, { loop: true });
+            currentMusic.play();
+        }
     }
 }
 
@@ -532,6 +639,9 @@ class HookWinsScene extends Phaser.Scene {
     preload() {
         // Preload the background image for Hook's victory
         this.load.image('HookWinsBackground', '/Assets/HookOrBeHooked/VictoryScene/HookWins.png');
+
+        // PreLoad the Victory Music
+        this.load.audio('hookVictory', '/Assets/HookOrBeHooked/VictoryScene/Sounds/winner.wav');
     }
 
     // ======================================================
@@ -541,10 +651,27 @@ class HookWinsScene extends Phaser.Scene {
         // Add the HookWins background image to the center of the scene
         this.add.image(400, 400, 'HookWinsBackground').setOrigin(0.5, 0.5);
 
+        if (audioEnabled) {
+            this.playMusic('hookVictory');  // Play the game music
+        }
+
         // Set a timed event to automatically transition back to the TitleScene after 5 seconds
         this.time.delayedCall(5000, () => {
             this.scene.start('TitleScene');  // Transition back to the TitleScene
         });
+    }
+
+    playMusic(key) {
+        if (audioEnabled) {
+            // Stop any current music
+            if (currentMusic) {
+                currentMusic.stop();
+            }
+
+            // Play new music for the scene
+            currentMusic = this.sound.add(key, { loop: true });
+            currentMusic.play();
+        }
     }
 }
 
