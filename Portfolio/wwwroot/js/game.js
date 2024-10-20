@@ -83,8 +83,7 @@ class TitleScene extends Phaser.Scene {
                 }
             });
         }
-        else
-        {
+        else {
             this.playMusic('titleMusic');
         }
 
@@ -238,15 +237,15 @@ class GameScene extends Phaser.Scene {
         });
 
         this.load.spritesheet('Hook', '/Assets/HookOrBeHooked/GameScene/Hook/Hook.png', {
-            frameWidth: 96,
+            frameWidth: 48,
             frameHeight: 90,
             endFrame: 3
         });
 
         // Preload Trash sprite sheet (5 frames)
         this.load.spritesheet('Trash', '/Assets/HookOrBeHooked/GameScene/Trash/Trash.png', {
-            frameWidth: 96,
-            frameHeight: 90,
+            frameWidth: 102,
+            frameHeight: 48,
             endFrame: 4
         });
     }
@@ -322,6 +321,10 @@ class GameScene extends Phaser.Scene {
         this.fish = this.physics.add.sprite(100, 400, 'Fish').setScale(1);
         this.hook = this.physics.add.sprite(700, 400, 'Hook').setScale(1);
 
+        // Adjust hook collider
+        this.hook.body.setSize(this.hook.width + 20, this.hook.height);
+        //this.hook.body.setOffset(40, 40);
+
         // Set the world bounds to constrain Fish and Hook within the canvas (800x800)
         this.physics.world.setBounds(0, 0, 800, 800);
         this.fish.setCollideWorldBounds(true);  // Constrain Fish
@@ -374,7 +377,7 @@ class GameScene extends Phaser.Scene {
 
         // Listen for trash spawning from other spectators
         this.connection.on("spawnTrashEvent", (size, speed, y) => {
-            this.spawnTrash(size, speed, y);
+                this.spawnTrash(size, speed, y);
         });
 
         // Spectators can generate trash
@@ -480,11 +483,14 @@ class GameScene extends Phaser.Scene {
 
     // Spawn trash for spectators
     spawnTrash(size, speed, y) {
-        size = 1 + (size / 10);  // Adjust size to be within 1.0 and 1.5
-        let trash = this.trashGroup.create(0, y, 'Trash').setScale(size);  // Create trash at the given Y position
-        trash.setVelocityX(speed);  // Move the trash from left to right at the random speed
-        trash.anims.play('trashMove', true);  // Play trash animation
-        this.sound.play('trashSplat');
+        // Check if there are spectators for automation
+            if (!this.spectatorsPresent) {
+                size = 1 + (size / 10);  // Adjust size to be within 1.0 and 1.5
+                let trash = this.trashGroup.create(0, y, 'Trash').setScale(size);  // Create trash at the given Y position
+                trash.setVelocityX(speed);  // Move the trash from left to right at the random speed
+                trash.anims.play('trashMove', true);  // Play trash animation
+                this.sound.play('trashSplat');
+            }
     }
 
     // ======================================================
@@ -502,7 +508,7 @@ class GameScene extends Phaser.Scene {
         this.trashTimer += delta;
 
         // If the timer exceeds the interval, generate trash and reset the timer
-        if (this.trashTimer >= this.trashInterval) {
+        if (this.trashTimer >= this.trashInterval && !this.spectatorsPresent) {
             // Call generateTrashData to generate trash every second
             this.generateTrashData({ y: Phaser.Math.Between(100, 700) });  // Random Y value for demo
             this.trashTimer = 0;  // Reset the timer
