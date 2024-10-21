@@ -202,8 +202,13 @@ class GameScene extends Phaser.Scene {
         // Initialize important game objects and variables
         this.fish = null;
         this.hook = null;
+        this.hookSpeed = 170;
         this.trashGroup = null;
         this.spectator = false;  // Default spectator role
+
+        // Trash Debuff variables
+        this.timeDebuff = -1;
+        this.isDebuffed = false;
 
         // Track the last known position of the Fish and Hook to reduce unnecessary updates
         this.fishLastPosition = { x: 0, y: 0 };
@@ -321,9 +326,9 @@ class GameScene extends Phaser.Scene {
         this.fish = this.physics.add.sprite(100, 400, 'Fish').setScale(1);
         this.hook = this.physics.add.sprite(700, 400, 'Hook').setScale(1);
 
-        // Adjust hook collider
-        this.hook.body.setSize(this.hook.width + 20, this.hook.height);
-        //this.hook.body.setOffset(40, 40);
+        // Adjust hook and fish collider
+        this.hook.body.setSize(this.hook.width - 40, this.hook.height - 40);
+        this.fish.body.setSize(this.fish.width - 20, this.fish.height - 20);
 
         // Set the world bounds to constrain Fish and Hook within the canvas (800x800)
         this.physics.world.setBounds(0, 0, 800, 800);
@@ -345,8 +350,15 @@ class GameScene extends Phaser.Scene {
         this.input.on('pointermove', this.setTargetPosition, this);
 
         // Enable collision detection between Hook, Fish, and Trash
-        this.physics.add.overlap(this.hook, this.fish, this.hookWins, null, this);  // Hook catches Fish
-        this.physics.add.overlap(this.hook, this.trashGroup, this.fishWins, null, this);  // Hook hits Trash
+
+        // Hook catches Fish
+        this.physics.add.overlap(this.hook, this.fish, this.hookWins, null, this);  
+
+        // Hook hits Trash (Loses Game: OLD FEATURE)
+        //this.physics.add.overlap(this.hook, this.trashGroup, this.fishWins, null, this);
+
+        // Hook hits Trash (Slows down Hook)
+        this.physics.add.overlap(this.hook, this.trashGroup, this.debuffHook, null, this);
 
         // ======================================================
         // SignalR Event Listeners for Win Conditions and Trash Spawning
@@ -355,6 +367,7 @@ class GameScene extends Phaser.Scene {
         // Hook Wins Event: Transition to HookWinsScene when Hook wins
         this.connection.on("HookWins", () => {
             this.connection.stop().then(() => {
+                this.resetHook();
                 this.playerRole = 'spectator';
                 localStorage.removeItem('role');  // Clear stored role after game end
                 this.scene.start('HookWinsScene');  // Transition to HookWinsScene
@@ -364,6 +377,7 @@ class GameScene extends Phaser.Scene {
         // Fish Wins Event: Transition to FishWinsScene when Fish wins
         this.connection.on("FishWins", () => {
             this.connection.stop().then(() => {
+                this.resetHook();
                 this.playerRole = 'spectator';
                 localStorage.removeItem('role');  // Clear stored role after game end
                 this.scene.start('FishWinsScene');  // Transition to FishWinsScene
@@ -424,6 +438,20 @@ class GameScene extends Phaser.Scene {
     // ======================================================
     // Custom Game Logic Methods
     // ======================================================
+
+    // Hook has collided with trash, slow speed!
+    debuffHook() {
+        // Sets time to be debuffed to 2 seconds
+        this.timeDebuff = 2000;
+
+        // Sets Debuff Boolean
+        this.isDebuffed = true;
+    }
+
+    resetHook() {
+        this.isDebuffed = false;
+        this.hookSpeed = 180;
+    }
 
     // Handle the input for setting the target position of Fish or Hook
     setTargetPosition(pointer) {
@@ -497,6 +525,26 @@ class GameScene extends Phaser.Scene {
     // Update Method: Runs every frame
     // ======================================================
     update(time, delta) {
+        // Debuff Checks
+        if (this.isDebuffed === true) {
+            // Decrement Time by time passed since last frame
+            this.timeDebuff -= delta;
+
+            // If Debuff time is 0 or less, turn off debuff
+            if (this.timeDebuff <= 0) {
+                // Turn off Debuff
+                this.isDebuffed = false;
+
+                // Set Speed Back to Normal
+                this.hookSpeed = 180;
+            }
+            else {
+                // Debuff is active, adjust speed
+                this.hookSpeed = 70;
+            }
+        }
+
+
         // Check if trash has moved off-screen and destroy it
         this.trashGroup.children.each(trash => {
             if (trash.x > 800) {  // If trash moves beyond the canvas width (800)
@@ -508,7 +556,7 @@ class GameScene extends Phaser.Scene {
         this.trashTimer += delta;
 
         // If the timer exceeds the interval, generate trash and reset the timer
-        if (this.trashTimer >= this.trashInterval && !this.spectatorsPresent) {
+        if (this.trashTimer >= this.trashInterval) {
             // Call generateTrashData to generate trash every second
             this.generateTrashData({ y: Phaser.Math.Between(100, 700) });  // Random Y value for demo
             this.trashTimer = 0;  // Reset the timer
@@ -519,7 +567,7 @@ class GameScene extends Phaser.Scene {
             this.moveToTarget(this.fish, this.fishTarget, 230);  // Move Fish
             this.broadcastPosition('fish', this.fish);  // Send Fish position
         } else if (this.playerRole === 'hook') {
-            this.moveToTarget(this.hook, this.hookTarget, 170);  // Move Hook
+            this.moveToTarget(this.hook, this.hookTarget, this.hookSpeed);  // Move Hook
             this.broadcastPosition('hook', this.hook);  // Send Hook position
         }
     }
