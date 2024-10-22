@@ -260,6 +260,9 @@ class GameScene extends Phaser.Scene {
     // ======================================================
     create() {
         console.log("Creating Scene: GameScene...");
+        // Reset Timer from previous games
+        this.timeLeft = 30;
+
 
         // Retrieve role from localStorage or default to 'spectator'
         this.playerRole = localStorage.getItem('role') || 'spectator';
@@ -325,6 +328,18 @@ class GameScene extends Phaser.Scene {
         // Create Fish and Hook sprites with initial positions and animations
         this.fish = this.physics.add.sprite(100, 400, 'Fish').setScale(1);
         this.hook = this.physics.add.sprite(700, 400, 'Hook').setScale(1);
+
+        // Set default positions for Fish and Hook at game start
+        this.fish.setPosition(100, 400);
+        this.hook.setPosition(700, 400);
+
+        // Reset target positions
+        this.fishTarget = { x: 100, y: 400 };
+        this.hookTarget = { x: 700, y: 400 };
+
+        this.fishLastPosition = { x: 100, y: 400 };  // Default position for Fish
+        this.hookLastPosition = { x: 700, y: 400 };  // Default position for Hook
+
 
         // Adjust hook and fish collider
         this.hook.body.setSize(this.hook.width - 40, this.hook.height - 40);
