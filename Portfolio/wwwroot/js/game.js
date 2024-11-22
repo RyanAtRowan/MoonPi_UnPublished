@@ -620,7 +620,7 @@ class HowToPlayScene extends Phaser.Scene {
         }
 
         // Set a timed event to automatically transition to the GameScene after 5 seconds
-        this.time.delayedCall(5000, () => {
+        this.time.delayedCall(10000, () => {
             // Move to GameScene
             this.scene.start('GameScene');
         });
