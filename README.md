@@ -24,7 +24,7 @@
     This project aims to create a solution for saving the price of each scroll in the MMORPG Maplestory. Prices are volatile and change frequently, and the going rate for any given item may change based on time, availability, or marketing trends. Using this solution, users will be able to find the price of an item, even if the item is unavailable due to popularity or scarcity. This is a portfolio site, so it includes my personal portfolio and will soon include a second project.
     <br />
     <br />
-    <a href="https://www.moon-pi.net/RedBook">Demo</a>
+    Demo Disabled
     ·
     <a href="https://github.com/RyanAtRowan/MoonPi_UnPublished/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -44,7 +44,7 @@
       Hook or Be Hooked is a real-time, multiplayer arcade game designed for web browsers, using the power of modern web technologies to create a seamless and interactive experience.  The game immerses the players in a dynamic battle between two distinct roles: the Fish and the Hook, with additional involvement from Spectators who can influence the game directly by throwing obstacles into the playfield.
     <br />
     <br />
-    <a href="https://www.moon-pi.net/HookOrbehooked">Demo</a>
+    Demo Disabled
     .
     <a href="https://github.com/RyanAtRowan/MoonPi_UnPublished/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     .
